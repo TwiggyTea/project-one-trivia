@@ -8,9 +8,14 @@
     <script defer src="app.js"></script>
     <!-- stole this favicon thing from https://css-tricks.com/emojis-as-favicons/ -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#127793;</text></svg>">
-    <title>Twig's Trivia</title>
+    <title>Twig's Quiz</title>
 </head>
 <body>
+        <div id="start-page">
+            <h1>WHICH WATER ARE YOU</h1>
+            <button id="start-button">START GAME</button>
+        </div>
+
       <div id="game">
         <h1>THIS IS TRIVIA or a quiz</h1>
         <h2 id="score">SCORE: 0</h2>
@@ -18,15 +23,35 @@
             here is where a question might go. what is the answer?
         </p></div>
         <div id="answers">
-            <div id="top-answers">
-                <div class="answer-item" id="answer-a">A) pick me, I'm the answer!<div class="correct">xxx</div></div>
-                <div class="answer-item" id="answer-b">B) 3.14159</div>
+            <div id="left-answers">
+                <div class="answer-item">
+                    <div id="letter-a">A)</div>
+                    <div id="answer-a">
+                         
+                        </div>
+                </div>
+                <div class="answer-item">
+                    <div id="letter-b">B)</div>
+                    <div id="answer-b">
+                         
+                        </div>
+                </div>
             </div>
     
-            <div id="bottom-answers">
-                <div class="answer-item" id="answer-c">C) Des Moines</div>
-            <div class="answer-item" id="answer-d">D) A is being ridiculous, the answer is ____</div>
-            </div>
+            <div id="right-answers">
+                <div class="answer-item">
+                    <div id="letter-c">C)</div>
+                    <div id="answer-c">
+                        
+                        </div>
+                </div>
+                <div class="answer-item">
+                    <div id="letter-d">D)</div>
+                    <div id="answer-d">
+                         
+                        </div>
+                </div>
+        </div>
     
             
         </div>

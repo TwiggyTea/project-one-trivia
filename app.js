@@ -10,6 +10,8 @@ const scoreBoard = document.querySelector('#score')
 const correctAnswer = document.querySelector('.correct')
 const game = document.querySelector('#game')
 const resetButton = document.querySelector('#reset-button')
+const startButton = document.querySelector('#start-button')
+const startPage = document.querySelector('#start-page')
 
 //QUESTION NUMBER
 let questionNumber = 0
@@ -23,35 +25,35 @@ const qAndAObjects = [
     {
         questionNumber: 1 ,
         question: 'here is where a question might go. what is the answer?',
-        answerA: "pick me, I'm the answer!<div class=\"correct\"></div>",
+        answerA: "pick me, I'm the answer!",
         answerB: "3.14159",
         answerC: "Des Moines",
         answerD: "A is being ridiculous, the answer is ____",
-        correctAnswer: "pick me, I'm the answer!<div class=\"correct\"></div>"
+        correctAnswer: "pick me, I'm the answer!"
     },    {
         questionNumber: 2 ,
         question: 'Question 2',
         answerA: '2A',
-        answerB: '2B<div class=\"correct\"></div>',
+        answerB: '2B',
         answerC: '2C',
         answerD: '2D',
-        correctAnswer: '2B<div class=\"correct\"></div>'
+        correctAnswer: '2B'
     },    {
         questionNumber: 3 ,
         question: 'This is a test',
         answerA: 'test',
         answerB: 'test',
-        answerC: 'test<div class=\"correct\"></div>',
+        answerC: 'test',
         answerD: 'test',
-        correctAnswer: 'test<div class=\"correct\"></div>'
+        correctAnswer: 'test'
     },    {
         questionNumber: 4 ,
         question: 'Pick answer 4' ,
         answerA: 'answer 4',
         answerB: 'answer 4',
         answerC: 'answer 4',
-        answerD: 'answer 4<div class=\"correct\"></div>',
-        correctAnswer: 'answer 4<div class=\"correct\"></div>'
+        answerD: 'answer 4',
+        correctAnswer: 'answer 4'
     }
 ]
 
@@ -65,11 +67,11 @@ const nextQuestion = () => {
         finishGame()
     }
 
-    question.innerHTML = qAndAObjects[questionNumber].question
-    answerA.innerHTML = `A) ${qAndAObjects[questionNumber].answerA}`
-    answerB.innerHTML = `B) ${qAndAObjects[questionNumber].answerB}`
-    answerC.innerHTML = `C) ${qAndAObjects[questionNumber].answerC}`
-    answerD.innerHTML = `D) ${qAndAObjects[questionNumber].answerD}`
+    question.innerText = qAndAObjects[questionNumber].question
+    answerA.innerText = `A) ${qAndAObjects[questionNumber].answerA}`
+    answerB.innerText = `B) ${qAndAObjects[questionNumber].answerB}`
+    answerC.innerText = `C) ${qAndAObjects[questionNumber].answerC}`
+    answerD.innerText = `D) ${qAndAObjects[questionNumber].answerD}`
 }
 
 const incrementScore = () => {
@@ -77,6 +79,11 @@ const incrementScore = () => {
     score++
     scoreBoard.innerText = `SCORE: ${score}`
 
+}
+
+const startGame = () => {
+    startPage.style.display = 'none'
+    game.style.displaydisplay = 'block'
 }
 
 const finishGame = () => {
@@ -97,13 +104,22 @@ answersDiv.addEventListener('click', (event) => {
 
 
     if (event.target.classList.contains('answer-item')) {
-        if (event.target.children.length != 0) {
+        console.log(qAndAObjects[questionNumber].correctAnswer)
+        console.log(event.target.innerText)
+        if (event.target.innerText == qAndAObjects[questionNumber].correctAnswer) {
             nextQuestion()
             incrementScore()
         } else {
             nextQuestion()
         }
     }
+})
+
+startButton.addEventListener('click', () => {
+    console.log('yoyoyoy')
+    console.log(startPage)
+    console.log(game)
+    startGame()
 })
 
 resetButton.addEventListener('click', () => {
