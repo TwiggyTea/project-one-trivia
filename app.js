@@ -8,6 +8,8 @@ const answerC = document.querySelector('#answer-c')
 const answerD = document.querySelector('#answer-d')
 const scoreBoard = document.querySelector('#score')
 const correctAnswer = document.querySelector('.correct')
+const game = document.querySelector('#game')
+const resetButton = document.querySelector('#reset-button')
 
 //QUESTION NUMBER
 let questionNumber = 0
@@ -31,7 +33,7 @@ const nextQuestion = () => {
     if(aAnswers[questionNumber] == undefined) {
         questionNumber = 0
         score = -1
-        
+        finishGame()
     }
 
     question.innerHTML = questions[questionNumber]
@@ -49,7 +51,15 @@ const incrementScore = () => {
 }
 
 const finishGame = () => {
-    
+    game.style.display = 'none'
+}
+
+const resetGame = () => {
+    questionNumber = -1
+    score = -1
+    incrementScore()
+    nextQuestion()
+    game.style.display = ''
 }
 
 
@@ -65,4 +75,8 @@ answersDiv.addEventListener('click', (event) => {
             nextQuestion()
         }
     }
+})
+
+resetButton.addEventListener('click', () => {
+    resetGame()
 })
