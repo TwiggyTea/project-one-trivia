@@ -17,30 +17,59 @@ let questionNumber = 0
 //CURRENT SCORE
 let score = 0
 
-//QUESTION ARRAY
-const questions = ['here is where a question might go. what is the answer?', 'Question 2', 'This is a test', 'Pick answer 4']
+//QUESTION AND ANSWER OBJECT ARRAY
 
-//ANSWER ARRAYS
-const aAnswers = ["pick me, I'm the answer!<div class=\"correct\"></div>", '2A','test','answer 4']
-const bAnswers = ["3.14159", '2B<div class=\"correct\"></div>','test','answer 4']
-const cAnswers = ["Des Moines", '2C','test<div class=\"correct\"></div>','answer 4']
-const dAnswers = ["A is being ridiculous, the answer is ____", '2D','test','answer 4<div class=\"correct\"></div>']
+const qAndAObjects = [
+    {
+        questionNumber: 1 ,
+        question: 'here is where a question might go. what is the answer?',
+        answerA: "pick me, I'm the answer!<div class=\"correct\"></div>",
+        answerB: "3.14159",
+        answerC: "Des Moines",
+        answerD: "A is being ridiculous, the answer is ____",
+        correctAnswer: "pick me, I'm the answer!<div class=\"correct\"></div>"
+    },    {
+        questionNumber: 2 ,
+        question: 'Question 2',
+        answerA: '2A',
+        answerB: '2B<div class=\"correct\"></div>',
+        answerC: '2C',
+        answerD: '2D',
+        correctAnswer: '2B<div class=\"correct\"></div>'
+    },    {
+        questionNumber: 3 ,
+        question: 'This is a test',
+        answerA: 'test',
+        answerB: 'test',
+        answerC: 'test<div class=\"correct\"></div>',
+        answerD: 'test',
+        correctAnswer: 'test<div class=\"correct\"></div>'
+    },    {
+        questionNumber: 4 ,
+        question: 'Pick answer 4' ,
+        answerA: 'answer 4',
+        answerB: 'answer 4',
+        answerC: 'answer 4',
+        answerD: 'answer 4<div class=\"correct\"></div>',
+        correctAnswer: 'answer 4<div class=\"correct\"></div>'
+    }
+]
 
 //CALLBACK FUNCTIONS
 const nextQuestion = () => {
     questionNumber++
 
-    if(aAnswers[questionNumber] == undefined) {
+    if(qAndAObjects[questionNumber] == undefined) {
         questionNumber = 0
         score = -1
         finishGame()
     }
 
-    question.innerHTML = questions[questionNumber]
-    answerA.innerHTML = `A) ${aAnswers[questionNumber]}`
-    answerB.innerHTML = `B) ${bAnswers[questionNumber]}`
-    answerC.innerHTML = `C) ${cAnswers[questionNumber]}`
-    answerD.innerHTML = `D) ${dAnswers[questionNumber]}`
+    question.innerHTML = qAndAObjects[questionNumber].question
+    answerA.innerHTML = `A) ${qAndAObjects[questionNumber].answerA}`
+    answerB.innerHTML = `B) ${qAndAObjects[questionNumber].answerB}`
+    answerC.innerHTML = `C) ${qAndAObjects[questionNumber].answerC}`
+    answerD.innerHTML = `D) ${qAndAObjects[questionNumber].answerD}`
 }
 
 const incrementScore = () => {
