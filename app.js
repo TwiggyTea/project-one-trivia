@@ -1,5 +1,6 @@
 //QUERY SELECTORS
 
+const question = document.querySelector('#question')
 const answersDiv = document.querySelector('#answers')
 const answerA = document.querySelector('#answer-a')
 const answerB = document.querySelector('#answer-b')
@@ -14,12 +15,14 @@ let questionNumber = 0
 //CURRENT SCORE
 let score = 0
 
+//QUESTION ARRAY
+const questions = ['here is where a question might go. what is the answer?', 'Question 2', 'This is a test', 'Pick answer 4']
 
 //ANSWER ARRAYS
-const aAnswers = ["A) pick me, I'm the answer!<div class=\"correct\">xxx</div>", '2A','test','answer 4']
-const bAnswers = ["B) 3.14159", '2B<div class=\"correct\">xxx</div>','test','answer 4']
-const cAnswers = ["C) Des Moines", '2C','test<div class=\"correct\">xxx</div>','answer 4']
-const dAnswers = ["D) A is being ridiculous, the answer is ____", '2D','test','answer 4<div class=\"correct\">xxx</div>']
+const aAnswers = ["pick me, I'm the answer!<div class=\"correct\"></div>", '2A','test','answer 4']
+const bAnswers = ["3.14159", '2B<div class=\"correct\"></div>','test','answer 4']
+const cAnswers = ["Des Moines", '2C','test<div class=\"correct\"></div>','answer 4']
+const dAnswers = ["A is being ridiculous, the answer is ____", '2D','test','answer 4<div class=\"correct\"></div>']
 
 //CALLBACK FUNCTIONS
 const nextQuestion = () => {
@@ -31,10 +34,11 @@ const nextQuestion = () => {
         
     }
 
-    answerA.innerHTML = aAnswers[questionNumber]
-    answerB.innerHTML = bAnswers[questionNumber]
-    answerC.innerHTML = cAnswers[questionNumber]
-    answerD.innerHTML = dAnswers[questionNumber]
+    question.innerHTML = questions[questionNumber]
+    answerA.innerHTML = `A) ${aAnswers[questionNumber]}`
+    answerB.innerHTML = `B) ${bAnswers[questionNumber]}`
+    answerC.innerHTML = `C) ${cAnswers[questionNumber]}`
+    answerD.innerHTML = `D) ${dAnswers[questionNumber]}`
 }
 
 const incrementScore = () => {
@@ -44,6 +48,10 @@ const incrementScore = () => {
 
 }
 
+const finishGame = () => {
+    
+}
+
 
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {
@@ -51,7 +59,6 @@ answersDiv.addEventListener('click', (event) => {
 
     if (event.target.classList.contains('answer-item')) {
         if (event.target.children.length != 0) {
-            console.log('hello')
             nextQuestion()
             incrementScore()
         } else {
