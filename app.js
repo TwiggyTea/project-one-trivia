@@ -24,7 +24,7 @@ let score = 0
 const qAndAObjects = [
     {
         questionNumber: 1 ,
-        question: 'here is where a question might go. what is the answer?',
+        question: "Which of these " ,
         answerA: "pick me, I'm the answer!",
         answerB: "3.14159",
         answerC: "Des Moines",
@@ -68,10 +68,10 @@ const nextQuestion = () => {
     }
 
     question.innerText = qAndAObjects[questionNumber].question
-    answerA.innerText = `A) ${qAndAObjects[questionNumber].answerA}`
-    answerB.innerText = `B) ${qAndAObjects[questionNumber].answerB}`
-    answerC.innerText = `C) ${qAndAObjects[questionNumber].answerC}`
-    answerD.innerText = `D) ${qAndAObjects[questionNumber].answerD}`
+    answerA.innerText = qAndAObjects[questionNumber].answerA
+    answerB.innerText = qAndAObjects[questionNumber].answerB
+    answerC.innerText = qAndAObjects[questionNumber].answerC
+    answerD.innerText = qAndAObjects[questionNumber].answerD
 }
 
 const incrementScore = () => {
@@ -83,7 +83,12 @@ const incrementScore = () => {
 
 const startGame = () => {
     startPage.style.display = 'none'
-    game.style.displaydisplay = 'block'
+    game.style.display = 'block'
+    question.innerText = qAndAObjects[questionNumber].question
+    answerA.innerText = qAndAObjects[questionNumber].answerA
+    answerB.innerText = qAndAObjects[questionNumber].answerB
+    answerC.innerText = qAndAObjects[questionNumber].answerC
+    answerD.innerText = qAndAObjects[questionNumber].answerD
 }
 
 const finishGame = () => {
@@ -116,9 +121,6 @@ answersDiv.addEventListener('click', (event) => {
 })
 
 startButton.addEventListener('click', () => {
-    console.log('yoyoyoy')
-    console.log(startPage)
-    console.log(game)
     startGame()
 })
 
