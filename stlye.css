@@ -41,9 +41,9 @@ body {
     display: none;
 }
 
-#reset-button{
+/* #reset-button{
     display: none;
-}
+} */
 
 .correct {
     display: none;
@@ -51,6 +51,7 @@ body {
 
 #score-board{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 

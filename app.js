@@ -12,52 +12,151 @@ const game = document.querySelector('#game')
 const resetButton = document.querySelector('#reset-button')
 const startButton = document.querySelector('#start-button')
 const startPage = document.querySelector('#start-page')
+const lakeScore = document.querySelector('#lake-score')
+const riverScore = document.querySelector('#river-score')
+const waterfallScore = document.querySelector('#waterfall-score')
+const fijiScore = document.querySelector('#fiji-score')
+const peeScore = document.querySelector('#pee-score')
+const oceanScore = document.querySelector('#ocean-score')
+const deepSeaScore = document.querySelector('#deep-sea-score')
+const puddleScore = document.querySelector('#puddle-score')
+const rainScore = document.querySelector('#rain-score')
+const vodkaScore = document.querySelector('#vodka-score')
+const seltzerScore = document.querySelector('#seltzer-score')
+const iceScore = document.querySelector('#ice-score')
 
 //QUESTION NUMBER
 let questionNumber = 0
 
-//CURRENT SCORE
-let score = 0
-
+//PROFILE TRACKER
+let profiles = {
+    lake: 0,
+    river: 0,
+    waterfall: 0,
+    fiji: 0,
+    pee: 0,
+    ocean: 0,
+    deep_sea: 0,
+    puddle: 0,
+    rain: 0,
+    vodka: 0,
+    seltzer: 0,
+    ice: 0
+}
 //QUESTION AND ANSWER OBJECT ARRAY
 
 const qAndAObjects = [
     {
         questionNumber: 1 ,
-        question: "Which of these " ,
-        answerA: "pick me, I'm the answer!",
-        answerB: "3.14159",
-        answerC: "Des Moines",
-        answerD: "A is being ridiculous, the answer is ____",
-        correctAnswer: "pick me, I'm the answer!"
-    },    {
+        question: "Would you go skydiving?" ,
+        answerA: {
+            text: "It's on my bucket list.",
+            ocean: 1,
+            waterfall: 2,
+        },
+        answerB: {
+            text: "Not ever.",
+            puddle: 2,
+            seltzer: 1
+        },
+        answerC: {
+            text: "I've done it and I love it!",
+            waterfall: 3,
+        },
+        answerD: {
+            text: "Only if I don't have a parachute.",
+            vodka: 2,
+            fiji: 1
+        },
+        },   {
         questionNumber: 2 ,
         question: 'Question 2',
-        answerA: '2A',
-        answerB: '2B',
-        answerC: '2C',
-        answerD: '2D',
-        correctAnswer: '2B'
-    },    {
+        answerA: ['2A'],
+        answerB: ['2B'],
+        answerC: ['2C'],
+        answerD: ['2D'],   
+        },   {
         questionNumber: 3 ,
         question: 'This is a test',
-        answerA: 'test',
-        answerB: 'test',
-        answerC: 'test',
-        answerD: 'test',
-        correctAnswer: 'test'
-    },    {
+        answerA: ['test'],
+        answerB: ['test'],
+        answerC: ['test'],
+        answerD: ['test'], 
+        },   {
         questionNumber: 4 ,
         question: 'Pick answer 4' ,
-        answerA: 'answer 4',
-        answerB: 'answer 4',
-        answerC: 'answer 4',
-        answerD: 'answer 4',
-        correctAnswer: 'answer 4'
-    }
+        answerA: ['answer 4'],
+        answerB: ['answer 4'],
+        answerC: ['answer 4'],
+        answerD: ['answer 4'],
+        }, 
 ]
 
 //CALLBACK FUNCTIONS
+const incrementProfiles = () => {
+
+    if (event.target.data.lake) {
+        profiles.lake += event.target.data.lake
+    }
+
+    if (event.target.data.river) {
+        profiles.river += event.target.data.river
+    }
+    
+    if (event.target.data.waterfall) {
+        profiles.waterfall += event.target.data.waterfall
+    }
+
+    if (event.target.data.fiji) {
+        profiles.fiji += event.target.data.fiji
+    }
+
+    if (event.target.data.pee) {
+        profiles.pee += event.target.data.pee
+    }
+
+    if (event.target.data.ocean) {
+        profiles.ocean += event.target.data.ocean
+    }
+
+    if (event.target.data.deep_sea) {
+        profiles.deep_sea += event.target.data.deep_sea
+    }
+
+    if (event.target.data.puddle) {
+        profiles.puddle += event.target.data.puddle
+    }
+
+    if (event.target.data.rain) {
+        profiles.rain += event.target.data.rain
+    }
+
+    if (event.target.data.vodka) {
+        profiles.vodka += event.target.data.vodka
+    }
+
+    if (event.target.data.seltzer) {
+        profiles.seltzer += event.target.data.seltzer
+    }
+
+    if (event.target.data.ice) {
+        profiles.ice += event.target.data.ice
+    }
+
+    lakeScore.innerText = `lake: ${profiles.lake}`
+    riverScore.innerText = `river: ${profiles.river}`
+    waterfallScore.innerText = `river: ${profiles.river}`
+    fijiScore.innerText = `fiji: ${profiles.fiji}`
+    peeScore.innerText = `pee: ${profiles.pee}`
+    oceanScore.innerText = `ocean: ${profiles.ocean}`
+    deepSeaScore.innerText = `deep sea: ${profiles.deep_sea}`
+    puddleScore.innerText = `puddle: ${profiles.puddle}`
+    rainScore.innerText = `rain: ${profiles.rain}`
+    vodkaScore.innerText = `vodka: ${profiles.vodka}`
+    seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
+    iceScore.innerText = `ice: ${profiles.ice}`
+}
+
 const nextQuestion = () => {
     questionNumber++
 
@@ -68,27 +167,33 @@ const nextQuestion = () => {
     }
 
     question.innerText = qAndAObjects[questionNumber].question
-    answerA.innerText = qAndAObjects[questionNumber].answerA
-    answerB.innerText = qAndAObjects[questionNumber].answerB
-    answerC.innerText = qAndAObjects[questionNumber].answerC
-    answerD.innerText = qAndAObjects[questionNumber].answerD
-}
 
-const incrementScore = () => {
+    answerA.innerText = qAndAObjects[questionNumber].answerA.text
+    answerB.innerText = qAndAObjects[questionNumber].answerB.text
+    answerC.innerText = qAndAObjects[questionNumber].answerC.text
+    answerD.innerText = qAndAObjects[questionNumber].answerD.text
 
-    score++
-    scoreBoard.innerText = `SCORE: ${score}`
-
+    answerA.data = qAndAObjects[questionNumber].answerA
+    answerB.data = qAndAObjects[questionNumber].answerB
+    answerC.data = qAndAObjects[questionNumber].answerC
+    answerD.data = qAndAObjects[questionNumber].answerD
 }
 
 const startGame = () => {
     startPage.style.display = 'none'
     game.style.display = 'block'
+
     question.innerText = qAndAObjects[questionNumber].question
-    answerA.innerText = qAndAObjects[questionNumber].answerA
-    answerB.innerText = qAndAObjects[questionNumber].answerB
-    answerC.innerText = qAndAObjects[questionNumber].answerC
-    answerD.innerText = qAndAObjects[questionNumber].answerD
+
+    answerA.innerText = qAndAObjects[questionNumber].answerA.text
+    answerB.innerText = qAndAObjects[questionNumber].answerB.text
+    answerC.innerText = qAndAObjects[questionNumber].answerC.text
+    answerD.innerText = qAndAObjects[questionNumber].answerD.text
+
+    answerA.data = qAndAObjects[questionNumber].answerA
+    answerB.data = qAndAObjects[questionNumber].answerB
+    answerC.data = qAndAObjects[questionNumber].answerC
+    answerD.data = qAndAObjects[questionNumber].answerD
 }
 
 const finishGame = () => {
@@ -96,11 +201,11 @@ const finishGame = () => {
 }
 
 const resetGame = () => {
+    game.style.display = 'block'
     questionNumber = -1
     score = -1
-    incrementScore()
     nextQuestion()
-    game.style.display = ''
+    
 }
 
 
@@ -109,14 +214,11 @@ answersDiv.addEventListener('click', (event) => {
 
 
     if (event.target.classList.contains('answer-item')) {
-        console.log(qAndAObjects[questionNumber].correctAnswer)
-        console.log(event.target.innerText)
-        if (event.target.innerText == qAndAObjects[questionNumber].correctAnswer) {
-            nextQuestion()
-            incrementScore()
-        } else {
-            nextQuestion()
-        }
+        console.log(event.target.data)
+        console.log(profiles)
+        console.log(event)
+        incrementProfiles()
+        nextQuestion()
     }
 })
 
