@@ -6,7 +6,7 @@ const answerA = document.querySelector('#answer-a')
 const answerB = document.querySelector('#answer-b')
 const answerC = document.querySelector('#answer-c')
 const answerD = document.querySelector('#answer-d')
-const scoreBoard = document.querySelector('#score')
+const scoreBoard = document.querySelector('#score-board')
 const correctAnswer = document.querySelector('.correct')
 const game = document.querySelector('#game')
 const resetButton = document.querySelector('#reset-button')
@@ -24,6 +24,7 @@ const rainScore = document.querySelector('#rain-score')
 const vodkaScore = document.querySelector('#vodka-score')
 const seltzerScore = document.querySelector('#seltzer-score')
 const iceScore = document.querySelector('#ice-score')
+const bloodScore = document.querySelector('#blood-score')
 
 //QUESTION NUMBER
 let questionNumber = 0
@@ -41,7 +42,8 @@ let profiles = {
     rain: 0,
     vodka: 0,
     seltzer: 0,
-    ice: 0
+    ice: 0,
+    blood: 0
 }
 //QUESTION AND ANSWER OBJECT ARRAY
 
@@ -53,43 +55,122 @@ const qAndAObjects = [
             text: "It's on my bucket list.",
             ocean: 1,
             waterfall: 2,
+            deep_sea: 1,
+            river: 1
         },
         answerB: {
             text: "Not ever.",
             puddle: 2,
-            seltzer: 1
+            seltzer: 1,
+            pee: 1,
         },
         answerC: {
             text: "I've done it and I love it!",
             waterfall: 3,
+            ice: 1,
+
         },
         answerD: {
             text: "Only if I don't have a parachute.",
             vodka: 2,
-            fiji: 1
+            fiji: 1,
+            blood: 1
         },
         },   {
         questionNumber: 2 ,
-        question: 'Question 2',
-        answerA: ['2A'],
-        answerB: ['2B'],
-        answerC: ['2C'],
-        answerD: ['2D'],   
-        },   {
+        question: 'Are you afraid of the dark?',
+        answerA: {
+            text: 'I quite like the dark.',
+            deep_sea: 2,
+            rain: 1,
+            blood: 1,
+            waterfall: 1
+
+        },
+        answerB: {
+            text: 'I\'m not afraid of the dark.',
+            lake: 1,
+            vodka: 1,
+            ice: 1,
+            ocean: 2
+        },
+        answerC: {
+            text: 'No!...',
+            river: 1,
+            puddle: 1,
+            fiji: 1
+
+        },
+        answerD: {
+            text: 'Yeah, haha, I am afraid of the dark.',
+            seltzer: 1,
+            pee: 1
+        }   
+        },  
+        {
         questionNumber: 3 ,
-        question: 'This is a test',
-        answerA: ['test'],
-        answerB: ['test'],
-        answerC: ['test'],
-        answerD: ['test'], 
-        },   {
+        question: 'What music do you listen to?',
+        answerA: {
+            text: 'Music that brings me good memories',
+            lake : 2,
+            ocean : 2,
+            rain: 1,
+            seltzer: 1
+
+
+        },
+        answerB: {
+            text: 'Music that gets me going!',
+            waterfall: 2,
+            ice: 1
+
+        },
+        answerC: {
+            text: 'Music to help me focus',
+            river: 2,
+            fiji: 1,
+            deep_sea: 2,
+            rain: 1
+        },
+        answerD: {
+            text: 'Music to dance to',
+            pee: 1,
+            puddle: 2,
+            vodka: 2,
+            seltzer: 2,
+            blood: 3
+
+        }   
+        },  {
         questionNumber: 4 ,
-        question: 'Pick answer 4' ,
-        answerA: ['answer 4'],
-        answerB: ['answer 4'],
-        answerC: ['answer 4'],
-        answerD: ['answer 4'],
-        }, 
+        question: 'What kind of pet would you want?',
+        answerA: {
+            text: 'I want a dog!',
+            lake: 2,
+            vodka: 1,
+            seltzer: 2
+
+        },
+        answerB: {
+            text: 'I want a cat!',
+            river: 1,
+            pee: 2,
+            puddle: 1,
+            rain: 1
+        },
+        answerC: {
+            text: 'I want something else.',
+            fiji: 2,
+            ocean: 1,
+            deep_sea: 2,
+            blood: 1
+        },
+        answerD: {
+            text: 'I don\'t want any animals',
+            waterfall: 1,
+            ice: 2,
+        }   
+        },
 ]
 
 //CALLBACK FUNCTIONS
@@ -143,9 +224,13 @@ const incrementProfiles = () => {
         profiles.ice += event.target.data.ice
     }
 
+    if (event.target.data.blood) {
+        profiles.blood += event.target.data.blood
+    }
+
     lakeScore.innerText = `lake: ${profiles.lake}`
     riverScore.innerText = `river: ${profiles.river}`
-    waterfallScore.innerText = `river: ${profiles.river}`
+    waterfallScore.innerText = `waterfall: ${profiles.river}`
     fijiScore.innerText = `fiji: ${profiles.fiji}`
     peeScore.innerText = `pee: ${profiles.pee}`
     oceanScore.innerText = `ocean: ${profiles.ocean}`
@@ -155,6 +240,7 @@ const incrementProfiles = () => {
     vodkaScore.innerText = `vodka: ${profiles.vodka}`
     seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
     iceScore.innerText = `ice: ${profiles.ice}`
+    bloodScore.innerText = `blood: ${profiles.blood}`
 }
 
 const nextQuestion = () => {
