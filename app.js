@@ -230,7 +230,7 @@ const incrementProfiles = () => {
 
     lakeScore.innerText = `lake: ${profiles.lake}`
     riverScore.innerText = `river: ${profiles.river}`
-    waterfallScore.innerText = `waterfall: ${profiles.river}`
+    waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
     fijiScore.innerText = `fiji: ${profiles.fiji}`
     peeScore.innerText = `pee: ${profiles.pee}`
     oceanScore.innerText = `ocean: ${profiles.ocean}`
