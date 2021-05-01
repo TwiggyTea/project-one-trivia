@@ -352,7 +352,36 @@ const finishGame = () => {
 const resetGame = () => {
     game.style.display = 'block'
     questionNumber = -1
-    score = -1
+    profiles = {
+        lake: 0,
+        river: 0,
+        waterfall: 0,
+        fiji: 0,
+        pee: 0,
+        ocean: 0,
+        deep_sea: 0,
+        puddle: 0,
+        rain: 0,
+        vodka: 0,
+        seltzer: 0,
+        ice: 0,
+        blood: 0
+    }
+
+    lakeScore.innerText = `lake: ${profiles.lake}`
+    riverScore.innerText = `river: ${profiles.river}`
+    waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
+    fijiScore.innerText = `fiji: ${profiles.fiji}`
+    peeScore.innerText = `pee: ${profiles.pee}`
+    oceanScore.innerText = `ocean: ${profiles.ocean}`
+    deepSeaScore.innerText = `deep sea: ${profiles.deep_sea}`
+    puddleScore.innerText = `puddle: ${profiles.puddle}`
+    rainScore.innerText = `rain: ${profiles.rain}`
+    vodkaScore.innerText = `vodka: ${profiles.vodka}`
+    seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
+    iceScore.innerText = `ice: ${profiles.ice}`
+    bloodScore.innerText = `blood: ${profiles.blood}`
+    
     nextQuestion()
     
 }
