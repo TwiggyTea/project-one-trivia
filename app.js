@@ -122,7 +122,8 @@ const qAndAObjects = [
         answerB: {
             text: 'Music that gets me going!',
             waterfall: 2,
-            ice: 1
+            ice: 1,
+            blood: 1
 
         },
         answerC: {
@@ -138,7 +139,7 @@ const qAndAObjects = [
             puddle: 2,
             vodka: 2,
             seltzer: 2,
-            blood: 3
+            blood: 2
 
         }   
         },  {
@@ -170,7 +171,69 @@ const qAndAObjects = [
             waterfall: 1,
             ice: 2,
         }   
+        },  {
+        questionNumber: 5,
+        question: 'How familiar are you with betrayal?',
+        answerA: {
+            text: 'I have betrayed others and been betrayed by others.',
+            river: 2,
+            pee: 2,
+            ocean: 3,
+            seltzer: 1
+
         },
+        answerB: {
+            text: 'Betrayal isn\'t really a thing for me.',
+            lake: 2,
+            deep_sea: 1,
+            puddle: 2,
+            seltzer: 1
+        },
+        answerC: {
+            text: 'I have a couple experiences, but I wouldn\'t say I\'m "familiar".',
+            fiji: 1,
+            rain: 2
+        },
+        answerD: {
+            text: 'I am betrayal incarnate.',
+            pee: 1,
+            vodka: 2,
+            ice: 2,
+            blood: 2
+        }
+        },  {
+        questionNumber: 6,
+        question: 'What is the worst thing you\'ve ever done?',
+        answerA: {
+            text: 'I said something I can never take back.',
+            puddle: 1,
+            seltzer: 2,
+            ice: 1
+
+        },
+        answerB: {
+            text: 'I stole.',
+            river: 1,
+            ocean: 2,
+            fiji: 1
+        },
+        answerC: {
+            text: 'I hurt someone I loved',
+            lake: 1,
+            blood: 2,
+            fiji: 1,
+            rain: 2
+    
+        },
+        answerD: {
+            text: 'No comment...',
+            pee: 1,
+            deep_sea: 1,
+            vodka: 2,
+            waterfall: 1,
+
+        }
+        }
 ]
 
 //CALLBACK FUNCTIONS
