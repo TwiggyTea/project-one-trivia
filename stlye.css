@@ -1,15 +1,23 @@
 :root{
-    --blue-sapphire: #2e5266ff;
-    --light-slate-gray: #6e8898ff;
-    --cadet-grey: #9fb1bcff;
-    --timberwolf: #d3d0cbff;
-    --maize-crayola: #e2c044ff;
+    --lake: rgb(24, 87, 76);
+    --river: rgb(70, 119, 189);
+    --waterfall: rgb(184, 210, 222);
+    --fiji: rgb(253,114,194);
+    --pee: rgb(232, 230, 125);
+    --ocean: rgb(0,113,152);
+    --deep_sea: rgb(4, 4, 28);
+    --puddle: rgb(136, 145, 158);
+    --rain: rgb(78, 101, 120);
+    --vodka: rgb(204, 206, 207);
+    --seltzer: rgb(207, 255, 224);
+    --ice: rgb(240, 253, 255);
+    --blood: rgb(168, 8, 11);
 }
 
 body {
-    background-color: var(--light-slate-gray);
-    color: var(--cadet-grey);
-    text-shadow: 1px 1px var(--maize-crayola);
+    background-color: var(--lake);
+    color: var(--river);
+    text-shadow: 1px 1px var(--pee);
     text-align: center;
 }
 
@@ -25,9 +33,9 @@ body {
 
 .answer-item {
     background-image: linear-gradient(#d3d0cbff,#2e5266ff, #2e5266ff, #2e5266ff, #2e5266ff);
-    color: var(--purple);
+    color: var(--deep_sea);
     padding: 25px;
-    border: 3px solid var(--maize-crayola);
+    border: 3px solid var(--blood);
     margin: 30px;
     width: 150px;
     height: 150px;
@@ -52,7 +60,7 @@ body {
 #score-board{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #end-screen {

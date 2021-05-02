@@ -378,8 +378,6 @@ const resetGame = () => {
         blood: 0
     }
 
-    drawRipple()
-
     lakeScore.innerText = `lake: ${profiles.lake}`
     riverScore.innerText = `river: ${profiles.river}`
     waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
@@ -398,14 +396,14 @@ const resetGame = () => {
     
 }
 
-const drawRipple = (color = 'white') => {
+const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
     const node = document.createElement("DIV");
     body.appendChild(node)
     node.classList.add('ripple')
     node.style.background = color
     const newNode = node.cloneNode(true);
     newNode.classList.add("animate");
-    newNode.style.left = '25%'
+    newNode.style.left = xCoordinate + '%'
     newNode.style.top = '66%'
     node.parentNode.replaceChild(newNode, node);
 }
@@ -414,67 +412,92 @@ const rippleChecker = () => {
 
     if (event.target.data.lake) {
         for (let i = 0; i < event.target.data.lake; i++) {
-            drawRipple('red')
+            drawRipple('var(--lake)', 7)
         }
     }
 
     if (event.target.data.river) {
-        profiles.river += event.target.data.river
+            for (let i = 0; i < event.target.data.river; i++) {
+                drawRipple('var(--river)', 14)
+            }
     }
     
     if (event.target.data.waterfall) {
-        profiles.waterfall += event.target.data.waterfall
+            for (let i = 0; i < event.target.data.waterfall; i++) {
+                drawRipple('var(--waterfall)', 21)
+                console.log('waterfall')
+            }
     }
 
     if (event.target.data.fiji) {
-        profiles.fiji += event.target.data.fiji
+            for (let i = 0; i < event.target.data.fiji; i++) {
+                drawRipple('var(--fiji)', 29)
+            }
     }
 
     if (event.target.data.pee) {
-        profiles.pee += event.target.data.pee
+            for (let i = 0; i < event.target.data.pee; i++) {
+                drawRipple('var(--pee)', 36)
+            }
     }
 
     if (event.target.data.ocean) {
-        profiles.ocean += event.target.data.ocean
+            for (let i = 0; i < event.target.data.ocean; i++) {
+                drawRipple('var(--ocean)', 43)
+            }
     }
 
     if (event.target.data.deep_sea) {
-        profiles.deep_sea += event.target.data.deep_sea
+            for (let i = 0; i < event.target.data.deep_sea; i++) {
+                drawRipple('var(--deep_sea)', 50)
+            }
     }
 
     if (event.target.data.puddle) {
-        profiles.puddle += event.target.data.puddle
+            for (let i = 0; i < event.target.data.puddle; i++) {
+                drawRipple('var(--puddle)', 57)
+            }
     }
 
     if (event.target.data.rain) {
-        profiles.rain += event.target.data.rain
+            for (let i = 0; i < event.target.data.rain; i++) {
+                drawRipple('var(--rain)', 64)
+            }
     }
 
     if (event.target.data.vodka) {
-        profiles.vodka += event.target.data.vodka
+            for (let i = 0; i < event.target.data.vodka; i++) {
+                drawRipple('var(--vodka)', 71)
+            }
     }
 
     if (event.target.data.seltzer) {
-        profiles.seltzer += event.target.data.seltzer
+            for (let i = 0; i < event.target.data.seltzer; i++) {
+                drawRipple('var(--seltzer)', 79)
+            }
     }
 
     if (event.target.data.ice) {
-        profiles.ice += event.target.data.ice
+            for (let i = 0; i < event.target.data.ice; i++) {
+                drawRipple('var(--ice)', 86)
+            }
     }
 
     if (event.target.data.blood) {
-        profiles.blood += event.target.data.blood
+            for (let i = 0; i < event.target.data.blood; i++) {
+                drawRipple('var(--blood)', 93)
+            }
     }
-}
 
+    console.log('what the fuck')
+    console.log(event.target.data)
+
+}
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {
 
 
     if (event.target.classList.contains('answer-item')) {
-        console.log(event.target.data)
-        console.log(profiles)
-        console.log(event)
         rippleChecker()
         incrementProfiles()
         nextQuestion()
