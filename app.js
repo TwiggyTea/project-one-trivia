@@ -1,3 +1,8 @@
+// notes for tomorrow
+// ok so I need to add a new param to draw ripple for the x coordinate
+// I need to add colors to my css so that I can pass that as an argument in draw ripple
+// I need to find some way to space out the ripples, probably set setInterval
+
 //QUERY SELECTORS
 
 const question = document.querySelector('#question')
@@ -393,16 +398,73 @@ const resetGame = () => {
     
 }
 
-const drawRipple = () => {
+const drawRipple = (color = 'white') => {
     const node = document.createElement("DIV");
     body.appendChild(node)
     node.classList.add('ripple')
-    node.style.background = 'red'
+    node.style.background = color
     const newNode = node.cloneNode(true);
     newNode.classList.add("animate");
     newNode.style.left = '25%'
     newNode.style.top = '66%'
     node.parentNode.replaceChild(newNode, node);
+}
+
+const rippleChecker = () => {
+
+    if (event.target.data.lake) {
+        for (let i = 0; i < event.target.data.lake; i++) {
+            drawRipple('red')
+        }
+    }
+
+    if (event.target.data.river) {
+        profiles.river += event.target.data.river
+    }
+    
+    if (event.target.data.waterfall) {
+        profiles.waterfall += event.target.data.waterfall
+    }
+
+    if (event.target.data.fiji) {
+        profiles.fiji += event.target.data.fiji
+    }
+
+    if (event.target.data.pee) {
+        profiles.pee += event.target.data.pee
+    }
+
+    if (event.target.data.ocean) {
+        profiles.ocean += event.target.data.ocean
+    }
+
+    if (event.target.data.deep_sea) {
+        profiles.deep_sea += event.target.data.deep_sea
+    }
+
+    if (event.target.data.puddle) {
+        profiles.puddle += event.target.data.puddle
+    }
+
+    if (event.target.data.rain) {
+        profiles.rain += event.target.data.rain
+    }
+
+    if (event.target.data.vodka) {
+        profiles.vodka += event.target.data.vodka
+    }
+
+    if (event.target.data.seltzer) {
+        profiles.seltzer += event.target.data.seltzer
+    }
+
+    if (event.target.data.ice) {
+        profiles.ice += event.target.data.ice
+    }
+
+    if (event.target.data.blood) {
+        profiles.blood += event.target.data.blood
+    }
 }
 
 //EVENT LISTENERS
@@ -413,6 +475,7 @@ answersDiv.addEventListener('click', (event) => {
         console.log(event.target.data)
         console.log(profiles)
         console.log(event)
+        rippleChecker()
         incrementProfiles()
         nextQuestion()
     }
