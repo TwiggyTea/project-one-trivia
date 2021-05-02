@@ -25,6 +25,8 @@ const vodkaScore = document.querySelector('#vodka-score')
 const seltzerScore = document.querySelector('#seltzer-score')
 const iceScore = document.querySelector('#ice-score')
 const bloodScore = document.querySelector('#blood-score')
+const endScreen = document.querySelector('#end-screen')
+const body = document.querySelector('body')
 
 //QUESTION NUMBER
 let questionNumber = 0
@@ -64,7 +66,7 @@ const qAndAObjects = [
             seltzer: 1,
             pee: 1,
         },
-        answerC: {
+        answerC: {lake: 0,
             text: "I've done it and I love it!",
             waterfall: 3,
             ice: 1,
@@ -347,10 +349,13 @@ const startGame = () => {
 
 const finishGame = () => {
     game.style.display = 'none'
+    endScreen.style.display = 'block'
 }
 
 const resetGame = () => {
-    game.style.display = 'block'
+    endScreen.style.display = 'none'
+    game.style.display = 'none'
+    startPage.style.display = 'block'
     questionNumber = -1
     profiles = {
         lake: 0,
@@ -368,6 +373,8 @@ const resetGame = () => {
         blood: 0
     }
 
+    drawRipple()
+
     lakeScore.innerText = `lake: ${profiles.lake}`
     riverScore.innerText = `river: ${profiles.river}`
     waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
@@ -381,11 +388,22 @@ const resetGame = () => {
     seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
     iceScore.innerText = `ice: ${profiles.ice}`
     bloodScore.innerText = `blood: ${profiles.blood}`
-    
+
     nextQuestion()
     
 }
 
+const drawRipple = () => {
+    const node = document.createElement("DIV");
+    body.appendChild(node)
+    node.classList.add('ripple')
+    node.style.background = 'red'
+    const newNode = node.cloneNode(true);
+    newNode.classList.add("animate");
+    newNode.style.left = '25%'
+    newNode.style.top = '66%'
+    node.parentNode.replaceChild(newNode, node);
+}
 
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {

@@ -55,6 +55,38 @@ body {
     justify-content: space-between;
 }
 
+#end-screen {
+    height: 20px;
+    width: 20px;
+    background: black;
+    display: none;
+}
+
+.ripple {
+    width: 10px;
+    height: 1px;
+    opacity: 0;
+    transform: scale(0);
+    background:  '';
+    border-radius: 50%;
+    position: fixed;
+  }
+
+.animate {
+    animation: ripple-mo 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes ripple-mo {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(50);
+      opacity: 0;
+    }
+  }
+
 /* audio {
     display: none
 } */
