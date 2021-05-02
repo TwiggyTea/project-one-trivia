@@ -396,6 +396,10 @@ const resetGame = () => {
     
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
 const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
     const node = document.createElement("DIV");
     body.appendChild(node)
@@ -404,93 +408,182 @@ const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
     const newNode = node.cloneNode(true);
     newNode.classList.add("animate");
     newNode.style.left = xCoordinate + '%'
-    newNode.style.top = '66%'
+    newNode.style.top = '70%'
     node.parentNode.replaceChild(newNode, node);
+}
+
+const drawLakeRipple = (points) => {
+    // if (event.target.data.lake) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--lake)', 7)
+        }
+    // }
+}
+
+const drawRiverRipple = (points) => {
+    // if (event.target.data.river) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--river)', 14)
+        }
+// }
+}
+
+const drawWaterfallRipple = (points) => {
+    // if (event.target.data.waterfall) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--waterfall)', 21)
+        }
+// }
+    
+}
+
+const drawFijiRipple = (points) => {
+    // if (event.target.data.fiji) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--fiji)', 29)
+        }
+// }
+}
+
+const drawPeeRipple = (points) => {
+    // if (event.target.data.pee) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--pee)', 36)
+        }
+// }
+}
+
+const drawOceanRipple = (points) => {
+    // if (event.target.data.ocean) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--ocean)', 43)
+        }
+// }
+}
+
+const drawDeepSeaRipple = (points) => {
+    // if (event.target.data.deep_sea) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--deep_sea)', 50)
+        }
+// }
+}
+
+const drawPuddleRipple = (points) => {
+    // if (event.target.data.puddle) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--puddle)', 57)
+        }
+// }
+}
+
+const drawRainRipple = (points) => {
+    // if (event.target.data.rain) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--rain)', 64)
+        }
+// }
+}
+
+const drawVodkaRipple = (points) => {
+    // if (event.target.data.vodka) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--vodka)', 71)
+        }
+// }
+}
+
+const drawSeltzerRipple = (points) => {
+    // if (event.target.data.seltzer) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--seltzer)', 79)
+        }
+// }
+}
+
+const drawIceRipple = (points) => {
+    // if (event.target.data.ice) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--ice)', 86)
+        }
+// }
+}
+
+const drawBloodRipple = (points) => {
+    // if (event.target.data.blood) {
+        for (let i = 0; i < points; i++) {
+            setTimeout(drawRipple, i * 1000, 'var(--blood)', 93)
+        }
+// }
 }
 
 const rippleChecker = () => {
 
+    let lakeI = event.target.data.lake
+    let riverI = event.target.data.river
+    let waterfallI = event.target.data.waterfall
+    let fijiI = event.target.data.fiji
+    let peeI = event.target.data.pee
+    let oceanI = event.target.data.ocean
+    let deepSeaI = event.target.data.deep_sea
+    let puddleI = event.target.data.puddle
+    let rainI = event.target.data.rain
+    let vodkaI = event.target.data.vodka
+    let seltzerI = event.target.data.seltzer
+    let iceI = event.target.data.ice
+    let bloodI = event.target.data.blood
+
     if (event.target.data.lake) {
-        for (let i = 0; i < event.target.data.lake; i++) {
-            drawRipple('var(--lake)', 7)
-        }
-    }
+            setTimeout(drawLakeRipple, 0, lakeI)
+            }
 
     if (event.target.data.river) {
-            for (let i = 0; i < event.target.data.river; i++) {
-                drawRipple('var(--river)', 14)
+            setTimeout(drawRiverRipple, 100, riverI)
             }
-    }
-    
+
     if (event.target.data.waterfall) {
-            for (let i = 0; i < event.target.data.waterfall; i++) {
-                drawRipple('var(--waterfall)', 21)
-                console.log('waterfall')
-            }
-    }
+        setTimeout(drawWaterfallRipple, 200, waterfallI)
+        }
 
     if (event.target.data.fiji) {
-            for (let i = 0; i < event.target.data.fiji; i++) {
-                drawRipple('var(--fiji)', 29)
+            setTimeout(drawFijiRipple, 300, fijiI)
             }
-    }
 
     if (event.target.data.pee) {
-            for (let i = 0; i < event.target.data.pee; i++) {
-                drawRipple('var(--pee)', 36)
+            setTimeout(drawPeeRipple, 400, peeI)
             }
-    }
 
     if (event.target.data.ocean) {
-            for (let i = 0; i < event.target.data.ocean; i++) {
-                drawRipple('var(--ocean)', 43)
+            setTimeout(drawOceanRipple, 500, oceanI)
             }
-    }
 
     if (event.target.data.deep_sea) {
-            for (let i = 0; i < event.target.data.deep_sea; i++) {
-                drawRipple('var(--deep_sea)', 50)
+            setTimeout(drawDeepSeaRipple, 600, deepSeaI)
             }
-    }
 
     if (event.target.data.puddle) {
-            for (let i = 0; i < event.target.data.puddle; i++) {
-                drawRipple('var(--puddle)', 57)
+            setTimeout(drawPuddleRipple, 700, puddleI)
             }
-    }
 
     if (event.target.data.rain) {
-            for (let i = 0; i < event.target.data.rain; i++) {
-                drawRipple('var(--rain)', 64)
+            setTimeout(drawRainRipple, 800, rainI)
             }
-    }
 
     if (event.target.data.vodka) {
-            for (let i = 0; i < event.target.data.vodka; i++) {
-                drawRipple('var(--vodka)', 71)
+            setTimeout(drawVodkaRipple, 900, vodkaI)
             }
-    }
 
     if (event.target.data.seltzer) {
-            for (let i = 0; i < event.target.data.seltzer; i++) {
-                drawRipple('var(--seltzer)', 79)
+            setTimeout(drawSeltzerRipple, 1000, seltzerI)
             }
-    }
 
     if (event.target.data.ice) {
-            for (let i = 0; i < event.target.data.ice; i++) {
-                drawRipple('var(--ice)', 86)
+            setTimeout(drawIceRipple, 1100, iceI)
             }
-    }
 
     if (event.target.data.blood) {
-            for (let i = 0; i < event.target.data.blood; i++) {
-                drawRipple('var(--blood)', 93)
+            setTimeout(drawBloodRipple, 1200, bloodI)
             }
-    }
-
-    console.log('what the fuck')
-    console.log(event.target.data)
 
 }
 //EVENT LISTENERS
