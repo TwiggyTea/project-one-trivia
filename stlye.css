@@ -47,6 +47,7 @@ body {
 
 #game {
     display: none;
+    /* animation: fade-out 1s cubic-bezier(0, 0, 0.2, 1); */
 }
 
 /* #reset-button{
@@ -64,10 +65,20 @@ body {
 }
 
 #end-screen {
-    height: 20px;
-    width: 20px;
+    height: 100vh;
+    width: 100vw;
     background: black;
     display: none;
+}
+
+#end-bar{
+    height:100vh;
+    width:100vw;
+    border:2px solid #000;
+    text-align:center;
+    color:#fff;
+    font-size:20px;
+    background:linear-gradient(to right, red 1%, yellow 20%, blue );
 }
 
 .ripple {
@@ -78,7 +89,7 @@ body {
     background:  '';
     border-radius: 50%;
     position: fixed;
-  }
+}
 
 .animate {
     animation: ripple-mo 1s cubic-bezier(0, 0, 0.2, 1);
@@ -94,6 +105,16 @@ body {
       opacity: 0;
     }
   }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
 
 /* audio {
     display: none

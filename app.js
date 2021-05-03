@@ -1,8 +1,3 @@
-// notes for tomorrow
-// ok so I need to add a new param to draw ripple for the x coordinate
-// I need to add colors to my css so that I can pass that as an argument in draw ripple
-// I need to find some way to space out the ripples, probably set setInterval
-
 //QUERY SELECTORS
 
 const question = document.querySelector('#question')
@@ -32,6 +27,7 @@ const iceScore = document.querySelector('#ice-score')
 const bloodScore = document.querySelector('#blood-score')
 const endScreen = document.querySelector('#end-screen')
 const body = document.querySelector('body')
+const endBar = document.querySelector('#end-bar')
 
 //QUESTION NUMBER
 let questionNumber = 0
@@ -75,7 +71,6 @@ const qAndAObjects = [
             text: "I've done it and I love it!",
             waterfall: 3,
             ice: 1,
-
         },
         answerD: {
             text: "Only if I don't have a parachute.",
@@ -92,7 +87,6 @@ const qAndAObjects = [
             rain: 1,
             blood: 1,
             waterfall: 1
-
         },
         answerB: {
             text: 'I\'m not afraid of the dark.',
@@ -106,7 +100,6 @@ const qAndAObjects = [
             river: 1,
             puddle: 1,
             fiji: 1
-
         },
         answerD: {
             text: 'Yeah, haha, I am afraid of the dark.',
@@ -123,15 +116,12 @@ const qAndAObjects = [
             ocean : 2,
             rain: 1,
             seltzer: 1
-
-
         },
         answerB: {
             text: 'Music that gets me going!',
             waterfall: 2,
             ice: 1,
             blood: 1
-
         },
         answerC: {
             text: 'Music to help me focus',
@@ -147,7 +137,6 @@ const qAndAObjects = [
             vodka: 2,
             seltzer: 2,
             blood: 2
-
         }   
         },  {
         questionNumber: 4 ,
@@ -157,7 +146,6 @@ const qAndAObjects = [
             lake: 2,
             vodka: 1,
             seltzer: 2
-
         },
         answerB: {
             text: 'I want a cat!',
@@ -184,10 +172,9 @@ const qAndAObjects = [
         answerA: {
             text: 'I have betrayed others and been betrayed by others.',
             river: 2,
-            pee: 2,
+            pee: 1,
             ocean: 3,
             seltzer: 1
-
         },
         answerB: {
             text: 'Betrayal isn\'t really a thing for me.',
@@ -203,7 +190,7 @@ const qAndAObjects = [
         },
         answerD: {
             text: 'I am betrayal incarnate.',
-            pee: 1,
+            pee: 2,
             vodka: 2,
             ice: 2,
             blood: 2
@@ -216,7 +203,6 @@ const qAndAObjects = [
             puddle: 1,
             seltzer: 2,
             ice: 1
-
         },
         answerB: {
             text: 'I stole.',
@@ -238,7 +224,6 @@ const qAndAObjects = [
             deep_sea: 1,
             vodka: 2,
             waterfall: 1,
-
         }
         }
 ]
@@ -354,7 +339,7 @@ const startGame = () => {
 
 const finishGame = () => {
     game.style.display = 'none'
-    endScreen.style.display = 'block'
+    endScreen.style.display = 'flex'
 }
 
 const resetGame = () => {
@@ -396,10 +381,6 @@ const resetGame = () => {
     
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
 const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
     const node = document.createElement("DIV");
     body.appendChild(node)
@@ -413,111 +394,85 @@ const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
 }
 
 const drawLakeRipple = (points) => {
-    // if (event.target.data.lake) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--lake)', 7)
         }
-    // }
 }
 
 const drawRiverRipple = (points) => {
-    // if (event.target.data.river) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--river)', 14)
         }
-// }
+
 }
 
 const drawWaterfallRipple = (points) => {
-    // if (event.target.data.waterfall) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--waterfall)', 21)
         }
-// }
-    
 }
 
 const drawFijiRipple = (points) => {
-    // if (event.target.data.fiji) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--fiji)', 29)
         }
-// }
 }
 
 const drawPeeRipple = (points) => {
-    // if (event.target.data.pee) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--pee)', 36)
         }
-// }
 }
 
 const drawOceanRipple = (points) => {
-    // if (event.target.data.ocean) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--ocean)', 43)
         }
-// }
 }
 
 const drawDeepSeaRipple = (points) => {
-    // if (event.target.data.deep_sea) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--deep_sea)', 50)
         }
-// }
 }
 
 const drawPuddleRipple = (points) => {
-    // if (event.target.data.puddle) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--puddle)', 57)
         }
-// }
 }
 
 const drawRainRipple = (points) => {
-    // if (event.target.data.rain) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--rain)', 64)
         }
-// }
 }
 
 const drawVodkaRipple = (points) => {
-    // if (event.target.data.vodka) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--vodka)', 71)
         }
-// }
 }
 
 const drawSeltzerRipple = (points) => {
-    // if (event.target.data.seltzer) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--seltzer)', 79)
         }
-// }
 }
 
 const drawIceRipple = (points) => {
-    // if (event.target.data.ice) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--ice)', 86)
         }
-// }
 }
 
 const drawBloodRipple = (points) => {
-    // if (event.target.data.blood) {
         for (let i = 0; i < points; i++) {
             setTimeout(drawRipple, i * 1000, 'var(--blood)', 93)
         }
-// }
 }
 
-const rippleChecker = () => {
+const rippleChecker = async() => {
 
     let lakeI = event.target.data.lake
     let riverI = event.target.data.river
@@ -586,12 +541,22 @@ const rippleChecker = () => {
             }
 
 }
+
+const setEndBar = () => {
+    endBar.style.background = `linear-gradient(to right, var(--deep_sea), var(--lake), var(--rain), var(--ocean), var(--river), var(--puddle), var(--fiji), var(--blood), var(--pee), var(--seltzer), var(--vodka), var(--waterfall), var(--ice)`
+}
+
+async function testAsync () {
+    console.log('fade out')
+    await rippleChecker()
+    return console.log('fade in')
+}
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {
 
 
     if (event.target.classList.contains('answer-item')) {
-        rippleChecker()
+        testAsync()
         incrementProfiles()
         nextQuestion()
     }
@@ -604,3 +569,7 @@ startButton.addEventListener('click', () => {
 resetButton.addEventListener('click', () => {
     resetGame()
 })
+
+// startGame()
+// setEndBar()
+// finishGame()
