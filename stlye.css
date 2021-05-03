@@ -47,7 +47,15 @@ body {
 
 #game {
     display: none;
-    /* animation: fade-out 1s cubic-bezier(0, 0, 0.2, 1); */
+}
+
+.fade {
+    /* pointer-events: none; */
+    animation: fade 5s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.no-text {
+    font-size: 0px
 }
 
 /* #reset-button{
@@ -67,18 +75,32 @@ body {
 #end-screen {
     height: 100vh;
     width: 100vw;
-    background: black;
     display: none;
 }
 
 #end-bar{
-    height:100vh;
-    width:100vw;
-    border:2px solid #000;
+    height:90vh;
+    width:100px;
     text-align:center;
     color:#fff;
     font-size:20px;
     background:linear-gradient(to right, red 1%, yellow 20%, blue );
+}
+
+#end-bar-labels{
+    height: 90vh;
+    width: 100px;
+    background-color: cornsilk;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#end-bar-labels p{
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    
 }
 
 .ripple {
@@ -97,21 +119,27 @@ body {
 
 @keyframes ripple-mo {
     0% {
-      transform: scale(0);
-      opacity: 1;
+        transform: scale(0);
+        opacity: 1;
     }
     100% {
-      transform: scale(50);
-      opacity: 0;
+        transform: scale(50);
+        opacity: 0;
     }
   }
 
-  @keyframes fade-out {
+  @keyframes fade {
     0% {
-      opacity: 1;
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
     }
     100% {
-      opacity: 0;
+        opacity: 1;
     }
   }
 

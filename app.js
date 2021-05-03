@@ -48,6 +48,24 @@ let profiles = {
     ice: 0,
     blood: 0
 }
+
+console.log(profiles.deep_sea)
+
+//PERCENT VARIABLES
+let deepSeaPercent = 0
+let lakePercent = 0 
+let rainPercent = 0 
+let oceanPercent = 0 
+let riverPercent = 0 
+let puddlePercent = 0 
+let fijiPercent = 0 
+let bloodPercent = 0 
+let peePercent = 0 
+let seltzerPercent = 0 
+let vodkaPercent = 0 
+let waterfallPercent = 0
+let icePercent = 0
+
 //QUESTION AND ANSWER OBJECT ARRAY
 
 const qAndAObjects = [
@@ -318,6 +336,8 @@ const nextQuestion = () => {
     answerB.data = qAndAObjects[questionNumber].answerB
     answerC.data = qAndAObjects[questionNumber].answerC
     answerD.data = qAndAObjects[questionNumber].answerD
+
+    
 }
 
 const startGame = () => {
@@ -472,93 +492,196 @@ const drawBloodRipple = (points) => {
         }
 }
 
-const rippleChecker = async() => {
-
-    let lakeI = event.target.data.lake
-    let riverI = event.target.data.river
-    let waterfallI = event.target.data.waterfall
-    let fijiI = event.target.data.fiji
-    let peeI = event.target.data.pee
-    let oceanI = event.target.data.ocean
-    let deepSeaI = event.target.data.deep_sea
-    let puddleI = event.target.data.puddle
-    let rainI = event.target.data.rain
-    let vodkaI = event.target.data.vodka
-    let seltzerI = event.target.data.seltzer
-    let iceI = event.target.data.ice
-    let bloodI = event.target.data.blood
+const rippleChecker = (event) => {
 
     if (event.target.data.lake) {
+        let lakeI = event.target.data.lake
             setTimeout(drawLakeRipple, 0, lakeI)
             }
 
     if (event.target.data.river) {
+        let riverI = event.target.data.river
             setTimeout(drawRiverRipple, 100, riverI)
             }
 
     if (event.target.data.waterfall) {
+        let waterfallI = event.target.data.waterfall
         setTimeout(drawWaterfallRipple, 200, waterfallI)
         }
 
     if (event.target.data.fiji) {
+        let fijiI = event.target.data.fiji
             setTimeout(drawFijiRipple, 300, fijiI)
             }
 
     if (event.target.data.pee) {
+        let peeI = event.target.data.pee
             setTimeout(drawPeeRipple, 400, peeI)
             }
 
     if (event.target.data.ocean) {
+        let oceanI = event.target.data.ocean
             setTimeout(drawOceanRipple, 500, oceanI)
             }
 
     if (event.target.data.deep_sea) {
+        let deepSeaI = event.target.data.deep_sea
             setTimeout(drawDeepSeaRipple, 600, deepSeaI)
             }
 
     if (event.target.data.puddle) {
+        let puddleI = event.target.data.puddle
             setTimeout(drawPuddleRipple, 700, puddleI)
             }
 
     if (event.target.data.rain) {
+            let rainI = event.target.data.rain
             setTimeout(drawRainRipple, 800, rainI)
             }
 
     if (event.target.data.vodka) {
+            let vodkaI = event.target.data.vodka
             setTimeout(drawVodkaRipple, 900, vodkaI)
             }
 
     if (event.target.data.seltzer) {
+            let seltzerI = event.target.data.seltzer
             setTimeout(drawSeltzerRipple, 1000, seltzerI)
             }
 
     if (event.target.data.ice) {
+            let iceI = event.target.data.ice
             setTimeout(drawIceRipple, 1100, iceI)
             }
 
     if (event.target.data.blood) {
+            let bloodI = event.target.data.blood
             setTimeout(drawBloodRipple, 1200, bloodI)
             }
 
 }
 
-const setEndBar = () => {
-    endBar.style.background = `linear-gradient(to right, var(--deep_sea), var(--lake), var(--rain), var(--ocean), var(--river), var(--puddle), var(--fiji), var(--blood), var(--pee), var(--seltzer), var(--vodka), var(--waterfall), var(--ice)`
+const getProfilePercents = () => {
+    total = ((
+        profiles.deep_sea + 
+        profiles.lake + 
+        profiles.rain + 
+        profiles.ocean + 
+        profiles.river + 
+        profiles.puddle + 
+        profiles.fiji + 
+        profiles.blood + 
+        profiles.pee + 
+        profiles.seltzer + 
+        profiles.vodka + 
+        profiles.waterfall +
+        profiles.ice) / 100)
+
+        console.log(total)
+
+    deepSeaPercent = profiles.deep_sea / total
+    lakePercent = profiles.lake / total + deepSeaPercent
+    rainPercent = profiles.rain / total + lakePercent
+    oceanPercent = profiles.ocean / total + rainPercent
+    riverPercent = profiles.river / total + oceanPercent
+    puddlePercent = profiles.puddle / total + riverPercent
+    fijiPercent = profiles.fiji / total + puddlePercent
+    bloodPercent = profiles.blood / total + fijiPercent
+    peePercent = profiles.pee / total + bloodPercent
+    seltzerPercent = profiles.seltzer / total + peePercent
+    vodkaPercent = profiles.vodka / total + seltzerPercent
+    waterfallPercent = profiles.waterfall / total + vodkaPercent
+    icePercent = profiles.ice / total + waterfallPercent
 }
 
-async function testAsync () {
-    console.log('fade out')
-    await rippleChecker()
-    return console.log('fade in')
+const setEndBar = () => {
+    endBar.style.background = `linear-gradient(
+    var(--deep_sea),
+    var(--deep_sea) ${deepSeaPercent}%,
+
+    var(--lake) ${deepSeaPercent}%,
+    var(--lake) ${lakePercent}%,
+
+    var(--rain) ${lakePercent}%,
+    var(--rain) ${rainPercent}%,
+
+    var(--ocean) ${rainPercent}%,
+    var(--ocean) ${oceanPercent}%,
+
+    var(--river) ${oceanPercent}%,
+    var(--river) ${riverPercent}%,
+
+    var(--puddle) ${riverPercent}%,
+    var(--puddle) ${puddlePercent}%,
+
+    var(--fiji) ${puddlePercent}%,
+    var(--fiji) ${fijiPercent}%,
+
+    var(--blood) ${fijiPercent}%,
+    var(--blood) ${bloodPercent}%,
+
+    var(--pee) ${bloodPercent}%,
+    var(--pee) ${peePercent}%,
+
+    var(--seltzer) ${peePercent}%,
+    var(--seltzer) ${seltzerPercent}%,
+
+    var(--vodka) ${seltzerPercent}%,
+    var(--vodka) ${vodkaPercent}%,
+
+    var(--waterfall) ${vodkaPercent}%,
+    var(--waterfall) ${waterfallPercent}%,
+
+    var(--ice) ${waterfallPercent}%,
+    var(--ice))`
 }
+
+const setEndBarLabels = () => {
+    deepSeaScore.style.height = `${deepSeaPercent}%`
+    lakeScore.style.height = `${lakePercent - deepSeaPercent}%`
+    rainScore.style.height = `${rainPercent - lakePercent}%`
+    oceanScore.style.height = `${oceanPercent - rainPercent}%`
+    riverScore.style.height = `${riverPercent - oceanPercent}%`
+    puddleScore.style.height = `${puddlePercent - riverPercent}%`
+    fijiScore.style.height = `${fijiPercent - puddlePercent}%`
+    bloodScore.style.height = `${bloodPercent - fijiPercent}%`
+    peeScore.style.height = `${peePercent - bloodPercent}%`
+    seltzerScore.style.height = `${seltzerPercent - peePercent}%`
+    vodkaScore.style.height = `${vodkaPercent - seltzerPercent}%`
+    waterfallScore.style.height = `${waterfallPercent - vodkaPercent}%`
+    iceScore.style.height = `${icePercent - waterfallPercent}%`
+}
+
+const startFade = () => {
+    game.classList.add('fade')
+    answerA.classList.add('no-text')
+    answerB.classList.add('no-text')
+    answerC.classList.add('no-text')
+    answerD.classList.add('no-text')
+    setTimeout(() => {game.classList.remove('fade')}, 4500)
+    setTimeout(() => {answerA.classList.remove('no-text')}, 3000)
+    setTimeout(() => {answerB.classList.remove('no-text')}, 3000)
+    setTimeout(() => {answerC.classList.remove('no-text')}, 3000)
+    setTimeout(() => {answerD.classList.remove('no-text')}, 3000)
+}
+
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {
 
 
+    //FADE OUT{.5s}  invis{s == ripplecheker 1s or 3s}  FADE IN{.5s} 
+
     if (event.target.classList.contains('answer-item')) {
-        testAsync()
+        startFade()
+        // setTimeout(() => {
+        //     rippleChecker(event)
+        // }, 1250)
+        setTimeout((rippleChecker), 1250, event)
         incrementProfiles()
         nextQuestion()
+        getProfilePercents()
+        setEndBar()
+        setEndBarLabels()
     }
 })
 
@@ -571,5 +694,7 @@ resetButton.addEventListener('click', () => {
 })
 
 // startGame()
+// getProfilePercents()
+// setEndBarLabels()
 // setEndBar()
 // finishGame()
