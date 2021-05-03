@@ -48,9 +48,6 @@ let profiles = {
     ice: 0,
     blood: 0
 }
-
-console.log(profiles.deep_sea)
-
 //PERCENT VARIABLES
 let deepSeaPercent = 0
 let lakePercent = 0 
@@ -246,6 +243,24 @@ const qAndAObjects = [
         }
 ]
 
+//DRIP SVG
+let drip = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+width="1vw" height="572.801px" viewBox="0 0 572.8 572.801" style="enable-background:new 0 0 572.8 572.801;"
+xml:space="preserve">
+<g>
+<path d="M520.25,353.6c0,125-100.5,219.201-233.8,219.201S52.55,478.6,52.55,353.6c0-115.3,164.7-301.5,197.7-337.7
+c9.3-10.2,22.4-15.9,36.2-15.9s26.9,5.8,36.2,15.9C355.55,52.1,520.25,238.4,520.25,353.6z"/>
+</g>
+</svg>`
+
+// let drip = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="100px" y="100px"
+// width="100" height="100" viewBox="100 100 100 100" style="enable-background:new 100 100 100 100;"
+// xml:space="preserve">
+// <g>
+// <path d="M520.25,353.6c0,125-100.5,219.201-233.8,219.201S52.55,478.6,52.55,353.6c0-115.3,164.7-301.5,197.7-337.7
+//    c9.3-10.2,22.4-15.9,36.2-15.9s26.9,5.8,36.2,15.9C355.55,52.1,520.25,238.4,520.25,353.6z"/>
+// </g>
+// </svg>`
 //CALLBACK FUNCTIONS
 const incrementProfiles = () => {
 
@@ -325,12 +340,14 @@ const nextQuestion = () => {
         finishGame()
     }
 
-    question.innerText = qAndAObjects[questionNumber].question
+    setTimeout(() => {
+        question.innerText = qAndAObjects[questionNumber].question
 
-    answerA.innerText = qAndAObjects[questionNumber].answerA.text
-    answerB.innerText = qAndAObjects[questionNumber].answerB.text
-    answerC.innerText = qAndAObjects[questionNumber].answerC.text
-    answerD.innerText = qAndAObjects[questionNumber].answerD.text
+        answerA.innerText = qAndAObjects[questionNumber].answerA.text
+        answerB.innerText = qAndAObjects[questionNumber].answerB.text
+        answerC.innerText = qAndAObjects[questionNumber].answerC.text
+        answerD.innerText = qAndAObjects[questionNumber].answerD.text
+    }, 3000)
 
     answerA.data = qAndAObjects[questionNumber].answerA
     answerB.data = qAndAObjects[questionNumber].answerB
@@ -492,6 +509,98 @@ const drawBloodRipple = (points) => {
         }
 }
 
+const drawDrip = (color = 'var(--deep_sea)', xCoordinate = '50') => {
+    const node = document.createElement("DIV");
+    node.innerHTML = drip
+    node.children[0].style.fill = color
+    body.appendChild(node)
+    node.classList.add('ripple')
+    const newNode = node.cloneNode(true);
+    newNode.classList.add("fall");
+    newNode.style.left = xCoordinate + '%'
+    newNode.style.top = '0%'
+    node.parentNode.replaceChild(newNode, node);
+}
+
+const drawLakeDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--lake)', 7)
+    }
+}
+
+const drawRiverDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--river)', 14)
+    }
+
+}
+
+const drawWaterfallDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--waterfall)', 21)
+    }
+}
+
+const drawFijiDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--fiji)', 29)
+    }
+}
+
+const drawPeeDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--pee)', 36)
+    }
+}
+
+const drawOceanDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--ocean)', 43)
+    }
+}
+
+const drawDeepSeaDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--deep_sea)', 50)
+    }
+}
+
+const drawPuddleDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--puddle)', 57)
+    }
+}
+
+const drawRainDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--rain)', 64)
+    }
+}
+
+const drawVodkaDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--vodka)', 71)
+    }
+}
+
+const drawSeltzerDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--seltzer)', 79)
+    }
+}
+
+const drawIceDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--ice)', 86)
+    }
+}
+
+const drawBloodDrip = (points) => {
+    for (let i = 0; i < points; i++) {
+        setTimeout(drawDrip, i * 1000, 'var(--blood)', 93)
+    }
+}
+
 const rippleChecker = (event) => {
 
     if (event.target.data.lake) {
@@ -516,6 +625,7 @@ const rippleChecker = (event) => {
 
     if (event.target.data.pee) {
         let peeI = event.target.data.pee
+        console.log(event.target)
             setTimeout(drawPeeRipple, 400, peeI)
             }
 
@@ -556,7 +666,78 @@ const rippleChecker = (event) => {
 
     if (event.target.data.blood) {
             let bloodI = event.target.data.blood
+            console.log(event.target)
             setTimeout(drawBloodRipple, 1200, bloodI)
+            }
+
+}
+
+const dripChecker = (event) => {
+
+    if (event.target.data.lake) {
+        let lakeI = event.target.data.lake
+            setTimeout(drawLakeDrip, 0, lakeI)
+            }
+
+    if (event.target.data.river) {
+        let riverI = event.target.data.river
+            setTimeout(drawRiverDrip, 100, riverI)
+            }
+
+    if (event.target.data.waterfall) {
+        let waterfallI = event.target.data.waterfall
+        setTimeout(drawWaterfallDrip, 200, waterfallI)
+        }
+
+    if (event.target.data.fiji) {
+        let fijiI = event.target.data.fiji
+            setTimeout(drawFijiDrip, 300, fijiI)
+            }
+
+    if (event.target.data.pee) {
+        let peeI = event.target.data.pee
+            setTimeout(drawPeeDrip, 400, peeI)
+            }
+
+    if (event.target.data.ocean) {
+        let oceanI = event.target.data.ocean
+            setTimeout(drawOceanDrip, 500, oceanI)
+            }
+
+    if (event.target.data.deep_sea) {
+        let deepSeaI = event.target.data.deep_sea
+            setTimeout(drawDeepSeaDrip, 600, deepSeaI)
+            }
+
+    if (event.target.data.puddle) {
+        let puddleI = event.target.data.puddle
+            setTimeout(drawPuddleDrip, 700, puddleI)
+            }
+
+    if (event.target.data.rain) {
+            let rainI = event.target.data.rain
+            setTimeout(drawRainDrip, 800, rainI)
+            }
+
+    if (event.target.data.vodka) {
+            let vodkaI = event.target.data.vodka
+            setTimeout(drawVodkaDrip, 900, vodkaI)
+            }
+
+    if (event.target.data.seltzer) {
+            let seltzerI = event.target.data.seltzer
+            setTimeout(drawSeltzerDrip, 1000, seltzerI)
+            }
+
+    if (event.target.data.ice) {
+            let iceI = event.target.data.ice
+            setTimeout(drawIceDrip, 1100, iceI)
+            }
+
+    if (event.target.data.blood) {
+            let bloodI = event.target.data.blood
+            console.log(event.target)
+            setTimeout(drawBloodDrip, 1200, bloodI)
             }
 
 }
@@ -576,8 +757,6 @@ const getProfilePercents = () => {
         profiles.vodka + 
         profiles.waterfall +
         profiles.ice) / 100)
-
-        console.log(total)
 
     deepSeaPercent = profiles.deep_sea / total
     lakePercent = profiles.lake / total + deepSeaPercent
@@ -654,20 +833,19 @@ const setEndBarLabels = () => {
 
 const startFade = () => {
     game.classList.add('fade')
-    answerA.classList.add('no-text')
-    answerB.classList.add('no-text')
-    answerC.classList.add('no-text')
-    answerD.classList.add('no-text')
-    setTimeout(() => {game.classList.remove('fade')}, 4500)
-    setTimeout(() => {answerA.classList.remove('no-text')}, 3000)
-    setTimeout(() => {answerB.classList.remove('no-text')}, 3000)
-    setTimeout(() => {answerC.classList.remove('no-text')}, 3000)
-    setTimeout(() => {answerD.classList.remove('no-text')}, 3000)
+    answerA.classList.add('no-click')
+    answerB.classList.add('no-click')
+    answerC.classList.add('no-click')
+    answerD.classList.add('no-click')
+    setTimeout(() => {game.classList.remove('fade')}, 7000)
+    setTimeout(() => {answerA.classList.remove('no-click')}, 4200)
+    setTimeout(() => {answerB.classList.remove('no-click')}, 4200)
+    setTimeout(() => {answerC.classList.remove('no-click')}, 4200)
+    setTimeout(() => {answerD.classList.remove('no-click')}, 4200)
 }
 
 //EVENT LISTENERS
 answersDiv.addEventListener('click', (event) => {
-
 
     //FADE OUT{.5s}  invis{s == ripplecheker 1s or 3s}  FADE IN{.5s} 
 
@@ -676,7 +854,9 @@ answersDiv.addEventListener('click', (event) => {
         // setTimeout(() => {
         //     rippleChecker(event)
         // }, 1250)
-        setTimeout((rippleChecker), 1250, event)
+        dripChecker(event)
+        rippleChecker(event)
+        // setTimeout((rippleChecker), 1250, event)
         incrementProfiles()
         nextQuestion()
         getProfilePercents()
