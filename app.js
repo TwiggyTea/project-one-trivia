@@ -253,14 +253,6 @@ c9.3-10.2,22.4-15.9,36.2-15.9s26.9,5.8,36.2,15.9C355.55,52.1,520.25,238.4,520.25
 </g>
 </svg>`
 
-// let drip = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="100px" y="100px"
-// width="100" height="100" viewBox="100 100 100 100" style="enable-background:new 100 100 100 100;"
-// xml:space="preserve">
-// <g>
-// <path d="M520.25,353.6c0,125-100.5,219.201-233.8,219.201S52.55,478.6,52.55,353.6c0-115.3,164.7-301.5,197.7-337.7
-//    c9.3-10.2,22.4-15.9,36.2-15.9s26.9,5.8,36.2,15.9C355.55,52.1,520.25,238.4,520.25,353.6z"/>
-// </g>
-// </svg>`
 //CALLBACK FUNCTIONS
 const incrementProfiles = () => {
 
@@ -838,10 +830,10 @@ const startFade = () => {
     answerC.classList.add('no-click')
     answerD.classList.add('no-click')
     setTimeout(() => {game.classList.remove('fade')}, 7000)
-    setTimeout(() => {answerA.classList.remove('no-click')}, 4200)
-    setTimeout(() => {answerB.classList.remove('no-click')}, 4200)
-    setTimeout(() => {answerC.classList.remove('no-click')}, 4200)
-    setTimeout(() => {answerD.classList.remove('no-click')}, 4200)
+    setTimeout(() => {answerA.classList.remove('no-click')}, 7000)
+    setTimeout(() => {answerB.classList.remove('no-click')}, 7000)
+    setTimeout(() => {answerC.classList.remove('no-click')}, 7000)
+    setTimeout(() => {answerD.classList.remove('no-click')}, 7000)
 }
 
 //EVENT LISTENERS
@@ -851,12 +843,8 @@ answersDiv.addEventListener('click', (event) => {
 
     if (event.target.classList.contains('answer-item')) {
         startFade()
-        // setTimeout(() => {
-        //     rippleChecker(event)
-        // }, 1250)
         dripChecker(event)
         rippleChecker(event)
-        // setTimeout((rippleChecker), 1250, event)
         incrementProfiles()
         nextQuestion()
         getProfilePercents()
