@@ -55,7 +55,7 @@ body {
 #start-button {
     justify-content: center;
     height: 100px;
-    width: 200px;
+    width: 220px;
     font-size: 25px;
     font-family: 'Varela Round', sans-serif;
     color: var(--deep_sea);
