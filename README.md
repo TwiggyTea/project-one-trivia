@@ -39,5 +39,6 @@ Just click [THIS LINK!](https://twiggytea.github.io/project-one-trivia/).
 ## Unresolved problems
 
 - sound effects
+- google chrome audio autoplay
 - reset button
 - new mechanics
