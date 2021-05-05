@@ -58,16 +58,16 @@ let profiles = {
 let profileDescriptions = {
     lake: `A stagnant body of fresh water. A home to many fish. Sitting by a lake offers peace and reflection. It isn't going anywhere, nothing flows in, and nothing flows out, but they are found all over the world. Lovable and relaxed, but also narrow and stuck.`,
     river: `Fast flowing fresh water. Full of life and extremely crisp. A river is a gorgeous sight to behold, but anything in it's path will be swept away. The soil in surrounding areas is nutrient rich. Powerful and lively, but also selfish and narrow.`,
-    waterfall: `A raging rapid meeting a sharp drop. An awe-inspiring sight. Fast and deadly, a waterfall is not a place that harbors life. A real feat of nature's intensity. Sometimes the end of the road is the most exciting part of the journey. Exciting and confident, but also reckless and short-lived.`,
-    fiji: `A stylish brand of bottled water. A symbol of status to some, and a bottle of water to others. Fiji brand water has been adopted by internet communities for it's styling and color. It's undeniable that it's packaging is some of the most pronounced. It is also undeniable that it's packaging is plastic. Fashionable and cool, but also superficial and materialistic.`,
+    waterfall: `A raging rapid meeting a sharp drop. An awe-inspiring sight. Fast and deadly, a waterfall is not a place that harbors life. A real feat of nature's intensity. Sometimes the end of the road is the most thrilling part of the journey. Exciting and confident, but also reckless and short-lived.`,
+    fiji: `A stylish brand of bottled water. A symbol of status to some, and just a drink to others. Fiji brand water has been adopted by internet communities for it's styling and color. It's undeniable that it's packaging is some of the most pronounced. It is also undeniable that it's packaging is plastic. Fashionable and cool, but also superficial and materialistic.`,
     pee: `The ghost of water's past. While urine is not a glamorous type of water, it is more vital to life than most others on this list. Your body creates pee by filter the water that flows through your body. Hardworking and loved by some without without parallel, but also disliked by most and unappreciated.`,
-    ocean: `The briny body of water that covers over 70 percent of our planet. The ocean is truly a sight to behold. Vast and encompassing, the sea is synonomous with a hear of adventure. While polluted and over-fished, the ocean is still home to millions of fish and plants. Daring and awe-inspiring, but also damaged and violent.`,
-    deep_sea: `Depths reaching miles below sea level. The deep sea is one the last places on Earth's map left uncharted. It is a home to alien creatures large and small. Light can penetrate one kilometer into water. The other ten kilometers is pitch darkess and a biting chill. Mysterious and polite, but also cold and unusual.`,
-    puddle: `A small pool of rainwater. Puddles never get old. There is a childlike playfulness that comes from splashing around in a puddle after an afternoon shower. Whether a bath for birds or a soaking for pedestrians, spmething as small as a puddle can have an impact. Cute and innocent, but also naive and messy.`,
-    rain: `Water condensed from in our atmosphere, falling back to earth.`,
-    vodka: `Was once water, turned alcoholic through a process of fermentation`,
-    seltzer: `Water that has been carbonated. A trendy beverage that some love and some hate. `,
-    ice: `The solid state of water. When water reaches a cold enough tempurature it turns into hard slipery ice. It is used everyday to add a refreshing chill to our beverage. An ice rink provides a fun environment for you to skate. On the other hand ice destroys infastructure and ecosystems year after year. Playful and fresh, but also ruthless and cold.`,
+    ocean: `The briny body of water that covers over 70 percent of our planet. The ocean is truly a sight to behold. Vast and encompassing, the sea is synonomous with a heart of adventure. While polluted and over-fished, the ocean is still home to millions of animals and plants. Daring and awe-inspiring, but also damaged and violent.`,
+    deep_sea: `Depths reaching miles below sea level. The deep sea is one the last places on Earth's map left uncharted. It is a home to alien creatures large and small. Light can penetrate one kilometer into water. The other ten kilometers are only pitch darkess and a biting chill. Mysterious and polite, but also cold and unusual.`,
+    puddle: `A small pool of rainwater. Puddles never get old. There is a childlike playfulness that comes from splashing around in a puddle after an afternoon shower. Whether a bath for birds or a soaking for pedestrians, something as small as a puddle can have an impact. Cute and innocent, but also naive and messy.`,
+    rain: `Water condensed from in our atmosphere, falling back to earth. A rainy afternoon brings a calm, bittersweet peacefulness. Going outside to enjoy the weather is nearly out of the question, but a perfect opportunity arises for you to curl up with a book. What is calming inside shelter can be a nightmare outside. Rain can also be a raging hurricane or a deadly flood. Intelligent and soothing, but also malcontent and tiring`,
+    vodka: `Was once water, turned alcoholic through a process of fermentation. Alcohol is tricky, it changes people. It can make shy people sociable and polite people rude. Drunkenness is similar to a mild poisoning, but it's a ritual humans go through time and time again. Fun and friendly, but self-loathing and reckless.`,
+    seltzer: `Water that has been carbonated. A trendy beverage that some love and some hate. Carbonated water often comes in cans or glass bottles, unlike it's still counterpart. Easy to enjoy on a warm afternoon, seltzer brings a subtle spice to an otherwise neutral drink. Sharp and cool, but also unoriginal and polarizing.`,
+    ice: `The solid state of water. When it reaches a cold enough temperature water turns into hard, slippery ice. It is used everyday to add a refreshing chill to our beverages. An ice rink provides a fun environment for you to skate around. On the other hand ice destroys infrastructure and ecosystems year after year. Playful and fresh, but also ruthless and cold.`,
     blood: `Water that runs through all of us. Blood has violent imagery associated with it, gruesome death, injury. That being said bloodshed wouldn't be so feared if blood wasn't so precious to us. It exists in this state of simultaneous fear and love. Passionate and fiery, but also sadistic and miserable.`
 }
 
@@ -116,7 +116,7 @@ const qAndAObjects = [
             fiji: 1,
             blood: 1
         },
-        },   {
+    },   {
         questionNumber: 2 ,
         question: 'Are you afraid of the dark?',
         answerA: {
@@ -144,8 +144,7 @@ const qAndAObjects = [
             seltzer: 1,
             pee: 1
         }   
-        },  
-        {
+    },  {
         questionNumber: 3 ,
         question: 'What music do you listen to?',
         answerA: {
@@ -176,7 +175,7 @@ const qAndAObjects = [
             seltzer: 2,
             blood: 2
         }   
-        },  {
+    },  {
         questionNumber: 4 ,
         question: 'What kind of pet would you want?',
         answerA: {
@@ -200,11 +199,11 @@ const qAndAObjects = [
             blood: 1
         },
         answerD: {
-            text: 'I don\'t want any animals',
+            text: 'I don\'t want any animals.',
             waterfall: 1,
             ice: 2,
         }   
-        },  {
+    },  {
         questionNumber: 5,
         question: 'How familiar are you with betrayal?',
         answerA: {
@@ -233,7 +232,7 @@ const qAndAObjects = [
             ice: 2,
             blood: 2
         }
-        },  {
+    },  {
         questionNumber: 6,
         question: 'What is the worst thing you\'ve ever done?',
         answerA: {
@@ -249,7 +248,7 @@ const qAndAObjects = [
             fiji: 1
         },
         answerC: {
-            text: 'I hurt someone I loved',
+            text: 'I hurt someone I loved.',
             lake: 1,
             blood: 2,
             fiji: 1,
@@ -263,7 +262,216 @@ const qAndAObjects = [
             vodka: 2,
             waterfall: 1,
         }
+    },  {
+        questionNumber: 7,
+        question: 'How do you fit in on a team?',
+        answerA: {
+            text: 'I try to lead my team.',
+            ocean: 1,
+            river: 2,
+            blood: 2,
+
+        },
+        answerB: {
+            text: 'I prefer to work alone.',
+            deep_sea: 2,
+            vodka: 1,
+            waterfall: 2
+        },
+        answerC: {
+            text: 'I usually go with the flow.',
+            lake: 1,
+            fiji: 1,
+            pee: 1,
+            puddle: 1,
+            seltzer: 1
+        },
+        answerD: {
+            text: 'None of these options apply to me.',
+            ice: 1,
+            vodka: 1,
+            ocean: 1,
+            rain: 2
         }
+    },  {
+        questionNumber: 8,
+        question: 'How do you compare to the rest of the population?',
+        answerA: {
+            text: `I'm the best.`,
+            ocean: 2,
+            ice: 2,
+            blood: 1
+        },
+        answerB: {
+            text: `I'm below average.`,
+            fiji: 2,
+            puddle: 1,
+            lake: 2
+        },
+        answerC: {
+            text: `I'm the worst.`,
+            pee: 1,
+            vodka: 2
+        },
+        answerD: {
+            text: `I'm above average.`,
+            rain: 2,
+            seltzer: 2,
+            puddle: 1,
+            river: 1
+        }
+    },  {
+        questionNumber: 9,
+        question: 'What is your idea of a perfect first date?',
+        answerA: {
+            text: 'A romantic dinner.',
+            rain: 2,
+            lake: 1,
+            ocean: 1,
+            seltzer: 1
+        },
+        answerB: {
+            text: 'Netflix and chill.',
+            pee: 2,
+            fiji: 1,
+            rain: 1
+        },
+        answerC: {
+            text: 'A visit to a meuseum.',
+            fiji: 2,
+            river: 1,
+            ocean: 2
+        },
+        answerD: {
+            text: 'Going out to dance.',
+            waterfall: 2,
+            blood: 2,
+            ice: 1
+        }
+    },  {
+        questionNumber: 10,
+        question: 'When are you most yourself?',
+        answerA: {
+            text: 'When I am alone.',
+            deep_sea: 2,
+            pee: 2,
+            lake: 1,
+            rain: 2
+        },
+        answerB: {
+            text: 'When I am lost in a crowd.',
+            vodka: 2,
+            fiji: 1,
+            pee: 1,
+            blood: 1
+        },
+        answerC: {
+            text: 'When I am exploring something new.',
+            puddle: 1,
+            waterfall: 2,
+            river: 1,
+            rain: 1
+        },
+        answerD: {
+            text: 'When I am in a farmilliar space.',
+            puddle: 2,
+            deep_sea: 1,
+            seltzer: 1
+        }
+    },  {
+        questionNumber: 11,
+        question: 'What percent of your income did you donate to charity this past year?',
+        answerA: {
+            text: 'None of it.',
+            ice: 2,
+            fiji: 2,
+            lake: 2,
+            vodka: 1
+        },
+        answerB: {
+            text: 'I volunteered my time!',
+            puddle: 2,
+            river: 2,
+            rain: 1,
+        },
+        answerC: {
+            text: 'Under 5 percent.',
+            seltzer: 2,
+            waterfall: 1,
+            deep_sea: 2
+        },
+        answerD: {
+            text: '5 percent or more.',
+            ocean: 2,
+            pee: 1,
+            blood: 1
+        }
+    },  {
+        questionNumber: 12,
+        question: 'How do you feel about travel?',
+        answerA: {
+            text: `I'm going to travel the world.`,
+            ocean: 2,
+            waterfall: 1,
+            fiji: 1,
+            seltzer: 1
+        },
+        answerB: {
+            text: `Home is where the heart is.`,
+            ice: 1,
+            lake: 2,
+            pee: 1,
+            puddle: 1,
+            blood: 2
+        },
+        answerC: {
+            text: `I do like a good road trip.`,
+            river: 2,
+            waterfall: 1,
+            puddle: 1,
+            rain: 1,
+            fiji: 1
+        },
+        answerD: {
+            text: `I don't move.`,
+            ice: 2,
+            deep_sea: 1,
+            rain: 2,
+            vodka: 2
+        }
+    },  {
+        questionNumber: 13,
+        question: `How did you feel about twelve previous questions?`,
+        answerA: {
+            text: 'They were too personal.',
+            deep_sea: 2,
+            vodka: 1,
+            seltzer: 2,
+            lake: 1
+        },
+        answerB: {
+            text: 'I enjoyed them!',
+            pee: 2,
+            ocean: 1,
+            ice: 2,
+            blood: 2,
+            waterfall: 2
+        },
+        answerC: {
+            text: `The questions made me really think about myself.`,
+            fiji: 2,
+            rain: 1,
+            vodka: 1,
+            river: 1
+        },
+        answerD: {
+            text: 'They were super weird.',
+            puddle: 2,
+            seltzer: 1,
+            lake: 1,
+            river: 1
+        }
+    }
 ]
 
 //DRIP SVG
