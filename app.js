@@ -1112,7 +1112,6 @@ answersDiv.addEventListener('click', (event) => {
 
 startButton.addEventListener('click', () => {
     startGame()
-    music.play()
 })
 
 resetButton.addEventListener('click', () => {
