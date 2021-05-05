@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stlye.css">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oi&family=Quicksand:wght@300&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stlye.css" />
     <script defer src="app.js"></script>
     <!-- stole this favicon thing from https://css-tricks.com/emojis-as-favicons/ -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#127754;</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#127754;</text></svg>"
+    />
     <title>Water?</title>
-</head>
-<body>
-        <div id="start-page">
-            <h1>WHICH WATER ARE YOU</h1>
-            <button id="start-button">START GAME</button>
+  </head>
+  <body>
+    <div id="start-page">
+      <h1 id="title">Which Water Are You?</h1>
+      <button id="start-button">- S T A R T -</button>
+    </div>
+    <div id="game">
+      <div id="question">
+        <p>here is where a question might go. what is the answer?</p>
+      </div>
+      <div id="answers">
+        <div id="left-answers">
+          <div class="answer-item" id="answer-a"></div>
+          <div class="answer-item" id="answer-b"></div>
         </div>
-      <div id="game">
-        <h1>Which Water Are You?</h1>
-        <div id="question"><p>
-            here is where a question might go. what is the answer?
-        </p></div>
-        <div id="answers">
-            <div id="left-answers">
-                    <div class="answer-item" id="answer-a">
-                    </div>
-                    <div class="answer-item" id="answer-b">
-                    </div>
-            </div>
-            <div id="right-answers">
-                    <div class="answer-item" id="answer-c">
-                    </div>
-                    <div class="answer-item" id="answer-d">
-                    </div>
-            </div>
+        <div id="right-answers">
+          <div class="answer-item" id="answer-c"></div>
+          <div class="answer-item" id="answer-d"></div>
         </div>
       </div>
-      <div id="end-screen">
-        <div id="score-board">
-          <div id="end-bar"></div>
-          <div id="end-bar-labels">
-            <p id="deep-sea-score"> - deep sea: 0</p>
-            <p id="lake-score"> - lake: 0</p>
-            <p id="rain-score"> - rain: 0</p>
-            <p id="ocean-score"> - ocean: 0</p>
-            <p id="river-score"> - river: 0</p>
-            <p id="puddle-score"> - puddle: 0</p>
-            <p id="fiji-score"> - fiji: 0</p>
-            <p id="blood-score"> - blood: 0</p>
-            <p id="pee-score"> - pee: 0</p>
-            <p id="seltzer-score"> - seltzer: 0</p>
-            <p id="vodka-score"> - vodka: 0</p>
-            <p id="waterfall-score"> - waterfall: 0</p>
-            <p id="ice-score"> - ice: 0</p>
-          </div>
+    </div>
+    <div id="end-screen">
+      <div id="result">
+        <h1 id="result-profile">Test result</h1>
+        <p id="result-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Necessitatibus minus porro fuga nemo vitae eius. Cupiditate, est? Quam
+          ex dolores pariatur, accusamus, a similique ab ad nisi aliquam
+          voluptatibus vel!
+        </p>
       </div>
+      <div id="score-board">
+        <div id="end-bar"></div>
+        <div id="end-bar-labels">
+          <p id="deep-sea-score">- deep sea: 0</p>
+          <p id="lake-score">- lake: 0</p>
+          <p id="rain-score">- rain: 0</p>
+          <p id="ocean-score">- ocean: 0</p>
+          <p id="river-score">- river: 0</p>
+          <p id="puddle-score">- puddle: 0</p>
+          <p id="fiji-score">- fiji: 0</p>
+          <p id="blood-score">- blood: 0</p>
+          <p id="pee-score">- pee: 0</p>
+          <p id="seltzer-score">- seltzer: 0</p>
+          <p id="vodka-score">- vodka: 0</p>
+          <p id="waterfall-score">- waterfall: 0</p>
+          <p id="ice-score">- ice: 0</p>
+        </div>
       </div>
-      <button id="reset-button">RESET GAME</button>
-      <audio controls>
-        <source src="trivia-background-music.mp3" type="audio/mpeg">
-      </audio>
-</body>
+      <button id="reset-button">Play Again?</button>
+    </div>
+    <!-- <audio controls autoplay>
+      <source id="bgm" src="trivia-background-music.mp3" type="audio/mpeg" />
+    </audio> -->
+  </body>
 </html>

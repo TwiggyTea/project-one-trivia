@@ -7,7 +7,6 @@ const answerB = document.querySelector('#answer-b')
 const answerC = document.querySelector('#answer-c')
 const answerD = document.querySelector('#answer-d')
 const scoreBoard = document.querySelector('#score-board')
-const correctAnswer = document.querySelector('.correct')
 const game = document.querySelector('#game')
 const resetButton = document.querySelector('#reset-button')
 const startButton = document.querySelector('#start-button')
@@ -28,26 +27,50 @@ const bloodScore = document.querySelector('#blood-score')
 const endScreen = document.querySelector('#end-screen')
 const body = document.querySelector('body')
 const endBar = document.querySelector('#end-bar')
+const resultProfile = document.querySelector('#result-profile')
+const resultDescription = document.querySelector('#result-description')
+
+
+// YOUR RESULT VARIABLE
+let yourResult;
 
 //QUESTION NUMBER
 let questionNumber = 0
 
-//PROFILE TRACKER
+//PROFILE SCORE TRACKER
 let profiles = {
-    lake: 0,
-    river: 0,
-    waterfall: 0,
-    fiji: 0,
-    pee: 0,
-    ocean: 0,
-    deep_sea: 0,
-    puddle: 0,
-    rain: 0,
-    vodka: 0,
-    seltzer: 0,
-    ice: 0,
-    blood: 0
+    lake: 1,
+    river: 1,
+    waterfall: 1,
+    fiji: 1,
+    pee: 1,
+    ocean: 1,
+    deep_sea: 1,
+    puddle: 1,
+    rain: 1,
+    vodka: 1,
+    seltzer: 1,
+    ice: 1,
+    blood: 1
 }
+
+// PROFILE DESCRIPTION TRACKER
+let profileDescriptions = {
+    lake: `A stagnant body of fresh water. A home to many fish. Sitting by a lake offers peace and reflection. It isn't going anywhere, nothing flows in, and nothing flows out, but they are found all over the world. Lovable and relaxed, but also narrow and stuck.`,
+    river: `Fast flowing fresh water. Full of life and extremely crisp. A river is a gorgeous sight to behold, but anything in it's path will be swept away. The soil in surrounding areas is nutrient rich. Powerful and lively, but also selfish and narrow.`,
+    waterfall: `A raging rapid meeting a sharp drop. An awe-inspiring sight. Fast and deadly, a waterfall is not a place that harbors life. A real feat of nature's intensity. Sometimes the end of the road is the most exciting part of the journey. Exciting and confident, but also reckless and short-lived.`,
+    fiji: `A stylish brand of bottled water. A symbol of status to some, and a bottle of water to others. Fiji brand water has been adopted by internet communities for it's styling and color. It's undeniable that it's packaging is some of the most pronounced. It is also undeniable that it's packaging is plastic. Fashionable and cool, but also superficial and materialistic.`,
+    pee: `The ghost of water's past. While urine is not a glamorous type of water, it is more vital to life than most others on this list. Your body creates pee by filter the water that flows through your body. Hardworking and loved by some without without parallel, but also disliked by most and unappreciated.`,
+    ocean: `The briny body of water that covers over 70 percent of our planet. The ocean is truly a sight to behold. Vast and encompassing, the sea is synonomous with a hear of adventure. While polluted and over-fished, the ocean is still home to millions of fish and plants. Daring and awe-inspiring, but also damaged and violent.`,
+    deep_sea: `Depths reaching miles below sea level. The deep sea is one the last places on Earth's map left uncharted. It is a home to alien creatures large and small. Light can penetrate one kilometer into water. The other ten kilometers is pitch darkess and a biting chill. Mysterious and polite, but also cold and unusual.`,
+    puddle: `A small pool of rainwater. Puddles never get old. There is a childlike playfulness that comes from splashing around in a puddle after an afternoon shower. Whether a bath for birds or a soaking for pedestrians, spmething as small as a puddle can have an impact. Cute and innocent, but also naive and messy.`,
+    rain: `Water condensed from in our atmosphere, falling back to earth.`,
+    vodka: `Was once water, turned alcoholic through a process of fermentation`,
+    seltzer: `Water that has been carbonated. A trendy beverage that some love and some hate. `,
+    ice: `The solid state of water. When water reaches a cold enough tempurature it turns into hard slipery ice. It is used everyday to add a refreshing chill to our beverage. An ice rink provides a fun environment for you to skate. On the other hand ice destroys infastructure and ecosystems year after year. Playful and fresh, but also ruthless and cold.`,
+    blood: `Water that runs through all of us. Blood has violent imagery associated with it, gruesome death, injury. That being said bloodshed wouldn't be so feared if blood wasn't so precious to us. It exists in this state of simultaneous fear and love. Passionate and fiery, but also sadistic and miserable.`
+}
+
 //PERCENT VARIABLES
 let deepSeaPercent = 0
 let lakePercent = 0 
@@ -308,19 +331,21 @@ const incrementProfiles = () => {
         profiles.blood += event.target.data.blood
     }
 
-    lakeScore.innerText = `lake: ${profiles.lake}`
-    riverScore.innerText = `river: ${profiles.river}`
-    waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
-    fijiScore.innerText = `fiji: ${profiles.fiji}`
-    peeScore.innerText = `pee: ${profiles.pee}`
-    oceanScore.innerText = `ocean: ${profiles.ocean}`
-    deepSeaScore.innerText = `deep sea: ${profiles.deep_sea}`
-    puddleScore.innerText = `puddle: ${profiles.puddle}`
-    rainScore.innerText = `rain: ${profiles.rain}`
-    vodkaScore.innerText = `vodka: ${profiles.vodka}`
-    seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
-    iceScore.innerText = `ice: ${profiles.ice}`
-    bloodScore.innerText = `blood: ${profiles.blood}`
+    lakeScore.innerText = ` - Lake: ${profiles.lake - 1}`
+    riverScore.innerText = ` - River: ${profiles.river - 1 - 1}`
+    waterfallScore.innerText = ` - Waterfall: ${profiles.waterfall - 1}`
+    fijiScore.innerText = ` - Fiji: ${profiles.fiji - 1}`
+    peeScore.innerText = ` - Pee: ${profiles.pee - 1}`
+    oceanScore.innerText = ` - Ocean: ${profiles.ocean - 1}`
+    deepSeaScore.innerText = ` - Deep Sea: ${profiles.deep_sea - 1}`
+    puddleScore.innerText = ` - Puddle: ${profiles.puddle - 1}`
+    rainScore.innerText = ` - Rain: ${profiles.rain - 1}`
+    vodkaScore.innerText = ` - Vodka: ${profiles.vodka - 1}`
+    seltzerScore.innerText = ` - Seltzer: ${profiles.seltzer - 1}`
+    iceScore.innerText = ` - Ice: ${profiles.ice - 1}`
+    bloodScore.innerText = ` - Blood: ${profiles.blood - 1}`
+
+    yourResult = Object.keys(profiles).reduce((a, b) => profiles[a] > profiles[b] ? a : b)
 }
 
 const nextQuestion = () => {
@@ -346,12 +371,18 @@ const nextQuestion = () => {
     answerC.data = qAndAObjects[questionNumber].answerC
     answerD.data = qAndAObjects[questionNumber].answerD
 
+    setTimeout(() => {window.scrollTo(0,0); }, 4000)
     
 }
 
 const startGame = () => {
-    startPage.style.display = 'none'
-    game.style.display = 'block'
+
+    game.classList.add('start-fade')
+    startPage.classList.add('fade')
+    setTimeout(() => {startPage.classList.remove('fade')}, 7000)
+    setTimeout(() => {game.classList.remove('start-fade')}, 3000)
+    setTimeout(() => {game.style.display = 'block'}, 2)
+    setTimeout(() => {startPage.style.display = 'none'}, 1250)
 
     question.innerText = qAndAObjects[questionNumber].question
 
@@ -367,47 +398,66 @@ const startGame = () => {
 }
 
 const finishGame = () => {
-    game.style.display = 'none'
+
+    resultProfile.style.color = `var(--${yourResult})`
+    resultDescription.innerText = profileDescriptions[`${yourResult}`]
+
+    drawEndAnimations()
+
+    if (yourResult == 'deep_sea') {
+        console.log('this fired')
+        yourResult = 'deep sea'
+    }
+    setTimeout(() =>{game.style.display = 'none'}, 4000)
     endScreen.style.display = 'flex'
+    resetButton.style.display = 'block'
+    resultProfile.innerText = yourResult
 }
 
 const resetGame = () => {
-    endScreen.style.display = 'none'
-    game.style.display = 'none'
-    startPage.style.display = 'block'
-    questionNumber = -1
-    profiles = {
-        lake: 0,
-        river: 0,
-        waterfall: 0,
-        fiji: 0,
-        pee: 0,
-        ocean: 0,
-        deep_sea: 0,
-        puddle: 0,
-        rain: 0,
-        vodka: 0,
-        seltzer: 0,
-        ice: 0,
-        blood: 0
-    }
+    // clearInterval(drawEndAnimations)
+    // endScreen.style.display = 'none'
+    // game.style.display = 'none'
+    // startPage.style.display = 'block'
+    // questionNumber = -1
+    // profiles = {
+    //     lake: 0,
+    //     river: 0,
+    //     waterfall: 0,
+    //     fiji: 0,
+    //     pee: 0,
+    //     ocean: 0,
+    //     deep_sea: 0,
+    //     puddle: 0,
+    //     rain: 0,
+    //     vodka: 0,
+    //     seltzer: 0,
+    //     ice: 0,
+    //     blood: 0
+    // }
+    window.location.reload()
 
-    lakeScore.innerText = `lake: ${profiles.lake}`
-    riverScore.innerText = `river: ${profiles.river}`
-    waterfallScore.innerText = `waterfall: ${profiles.waterfall}`
-    fijiScore.innerText = `fiji: ${profiles.fiji}`
-    peeScore.innerText = `pee: ${profiles.pee}`
-    oceanScore.innerText = `ocean: ${profiles.ocean}`
-    deepSeaScore.innerText = `deep sea: ${profiles.deep_sea}`
-    puddleScore.innerText = `puddle: ${profiles.puddle}`
-    rainScore.innerText = `rain: ${profiles.rain}`
-    vodkaScore.innerText = `vodka: ${profiles.vodka}`
-    seltzerScore.innerText = `seltzer: ${profiles.seltzer}`
-    iceScore.innerText = `ice: ${profiles.ice}`
-    bloodScore.innerText = `blood: ${profiles.blood}`
+    // lakeScore.innerText = ` - Lake: ${profiles.lake - 1}`
+    // riverScore.innerText = ` - River: ${profiles.river - 1}`
+    // waterfallScore.innerText = ` - Waterfall: ${profiles.waterfall - 1}`
+    // fijiScore.innerText = ` - Fiji: ${profiles.fiji - 1}`
+    // peeScore.innerText = ` - Pee: ${profiles.pee - 1}`
+    // oceanScore.innerText = ` - Ocean: ${profiles.ocean - 1}`
+    // deepSeaScore.innerText = ` - Deep Sea: ${profiles.deep_sea - 1}`
+    // puddleScore.innerText = ` -  Puddle: ${profiles.puddle - 1}`
+    // rainScore.innerText = ` - Rain: ${profiles.rain - 1}`
+    // vodkaScore.innerText = ` - Vodka: ${profiles.vodka - 1}`
+    // seltzerScore.innerText = ` - Seltzer: ${profiles.seltzer - 1}`
+    // iceScore.innerText = ` - Ice: ${profiles.ice - 1}`
+    // bloodScore.innerText = ` - Blood: ${profiles.blood - 1}`
 
-    nextQuestion()
+    // nextQuestion()
     
+}
+
+const drawEndAnimations = () => {
+    setInterval(drawDrip, 5000,`var(--${yourResult})`, 66)
+    setInterval(drawRipple, 5000,`var(--${yourResult})`, 66)
 }
 
 const drawRipple = (color = 'var(--deep_sea)', xCoordinate = '50') => {
@@ -825,11 +875,13 @@ const setEndBarLabels = () => {
 
 const startFade = () => {
     game.classList.add('fade')
+    endScreen.classList.add('end-fade')
     answerA.classList.add('no-click')
     answerB.classList.add('no-click')
     answerC.classList.add('no-click')
     answerD.classList.add('no-click')
     setTimeout(() => {game.classList.remove('fade')}, 7000)
+    setTimeout(() => {endScreen.classList.remove('end-fade')}, 7000)
     setTimeout(() => {answerA.classList.remove('no-click')}, 7000)
     setTimeout(() => {answerB.classList.remove('no-click')}, 7000)
     setTimeout(() => {answerC.classList.remove('no-click')}, 7000)
