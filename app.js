@@ -29,6 +29,7 @@ const body = document.querySelector('body')
 const endBar = document.querySelector('#end-bar')
 const resultProfile = document.querySelector('#result-profile')
 const resultDescription = document.querySelector('#result-description')
+const music = document.querySelector('#bgm')
 
 
 // YOUR RESULT VARIABLE
@@ -613,7 +614,6 @@ const finishGame = () => {
     drawEndAnimations()
 
     if (yourResult == 'deep_sea') {
-        console.log('this fired')
         yourResult = 'deep sea'
     }
     setTimeout(() =>{game.style.display = 'none'}, 4000)
@@ -875,7 +875,6 @@ const rippleChecker = (event) => {
 
     if (event.target.data.pee) {
         let peeI = event.target.data.pee
-        console.log(event.target)
             setTimeout(drawPeeRipple, 400, peeI)
             }
 
@@ -916,7 +915,6 @@ const rippleChecker = (event) => {
 
     if (event.target.data.blood) {
             let bloodI = event.target.data.blood
-            console.log(event.target)
             setTimeout(drawBloodRipple, 1200, bloodI)
             }
 
@@ -986,7 +984,6 @@ const dripChecker = (event) => {
 
     if (event.target.data.blood) {
             let bloodI = event.target.data.blood
-            console.log(event.target)
             setTimeout(drawBloodDrip, 1200, bloodI)
             }
 
@@ -1115,14 +1112,9 @@ answersDiv.addEventListener('click', (event) => {
 
 startButton.addEventListener('click', () => {
     startGame()
+    music.play()
 })
 
 resetButton.addEventListener('click', () => {
     resetGame()
 })
-
-// startGame()
-// getProfilePercents()
-// setEndBarLabels()
-// setEndBar()
-// finishGame()
