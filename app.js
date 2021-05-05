@@ -149,7 +149,7 @@ const qAndAObjects = [
         questionNumber: 3 ,
         question: 'What music do you listen to?',
         answerA: {
-            text: 'Music that brings me good memories',
+            text: 'Music that brings me good memories.',
             lake : 2,
             ocean : 2,
             rain: 1,
@@ -162,14 +162,14 @@ const qAndAObjects = [
             blood: 1
         },
         answerC: {
-            text: 'Music to help me focus',
+            text: 'Music to help me focus.',
             river: 2,
             fiji: 1,
             deep_sea: 2,
             rain: 1
         },
         answerD: {
-            text: 'Music to dance to',
+            text: 'Music to dance to.',
             pee: 1,
             puddle: 2,
             vodka: 2,
