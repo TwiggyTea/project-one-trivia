@@ -390,6 +390,16 @@ svg{
         animation: ripple-mo 3s cubic-bezier(0, 0, 0.2, 1);
     }
 
+    .ripple {
+        width: 20px;
+        height: 2px;
+        opacity: 0;
+        transform: scale(0);
+        background:  '';
+        border-radius: 50%;
+        position: fixed;
+    }
+
     @keyframes ripple-mo {
         0%{
             transform: scale(0);
@@ -397,10 +407,14 @@ svg{
         }
         66% {
             transform: scale(0);
+            /* width: 1px;
+            height: 1px; */
             opacity: 1;
         }
         100% {
-            transform: scale(20);
+            transform: scale(7);
+            /* width: 200px;
+            height: 20px; */
             opacity: 0;
         }
         }

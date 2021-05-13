@@ -338,7 +338,7 @@ const qAndAObjects = [
             rain: 1
         },
         answerC: {
-            text: 'A visit to a meuseum.',
+            text: 'A visit to a museum.',
             fiji: 2,
             river: 1,
             ocean: 2
@@ -763,13 +763,17 @@ const drawDrip = (color = 'var(--deep_sea)', xCoordinate = '50') => {
     const node = document.createElement("DIV");
     node.innerHTML = drip
     node.children[0].style.fill = color
-    body.appendChild(node)
     node.classList.add('ripple')
-    const newNode = node.cloneNode(true);
-    newNode.classList.add("fall");
-    newNode.style.left = xCoordinate + '%'
-    newNode.style.top = '0%'
-    node.parentNode.replaceChild(newNode, node);
+    node.classList.add("fall");
+    node.style.left = xCoordinate + '%'
+    node.style.top = '0%'
+    body.appendChild(node)
+    // node.classList.add('ripple')
+    // const newNode = node.cloneNode(true);
+    // newNode.classList.add("fall");
+    // newNode.style.left = xCoordinate + '%'
+    // newNode.style.top = '0%'
+    // node.parentNode.replaceChild(newNode, node);
 }
 
 const drawLakeDrip = (points) => {
